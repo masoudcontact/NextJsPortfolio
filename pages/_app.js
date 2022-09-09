@@ -1,4 +1,4 @@
-import Layout from "../Components/layout/layout";
+import Layout from "../Components/Layout/layout";
 import "../styles/globals.scss";
 import { ThemeProvider } from "theme-ui";
 import theme from "./theme";

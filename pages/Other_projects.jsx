@@ -4,9 +4,9 @@ import Head from "next/head";
 import Image from "next/image";
 import { Card, Box, Grid } from "theme-ui";
 import ChromeExtension from "./Extensions/ChromeExtension";
-import JsonPretty from "./npm/JsonPretty";
-import SkillRadar from "./npm/SkillRadar";
-import ProgressBar from "./npm/ProgressBar";
+import JsonPretty from "./Npm/JsonPretty";
+import SkillRadar from "./Npm/SkillRadar";
+import ProgressBar from "./Npm/ProgressBar";
 import backgroundImage from "../public/Images/documents.webp";
 
 const OtherProjects = () => {
@@ -41,9 +41,7 @@ const OtherProjects = () => {
         <Grid columns={[2, "2fr 1fr"]} gap={2}>
           <Box>
             <h1>Other Projects</h1>
-            <h4>
-              
-            </h4>
+            <h4></h4>
           </Box>
           <Box></Box>
         </Grid>
@@ -66,10 +64,18 @@ const OtherProjects = () => {
         </Card>
         <hr />
         <Grid columns={[1, "1fr"]} gap={2} sx={{ minHeight: "" }}>
-          <Box><ChromeExtension /></Box>
-          <Box><JsonPretty /></Box>
-          <Box><SkillRadar /></Box>
-          <Box><ProgressBar /></Box>
+          <Box>
+            <ChromeExtension />
+          </Box>
+          <Box>
+            <JsonPretty />
+          </Box>
+          <Box>
+            <SkillRadar />
+          </Box>
+          <Box>
+            <ProgressBar />
+          </Box>
         </Grid>
       </Card>
     </motion.div>
