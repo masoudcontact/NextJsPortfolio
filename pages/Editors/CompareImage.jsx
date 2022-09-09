@@ -88,7 +88,6 @@ const CompareImage = () => {
 
   /////////////////////////drag and drop file upload/////////////////////////////
 
-
   ////Left side
   const {
     getRootProps: getRootPropsFile1,
@@ -242,9 +241,6 @@ const CompareImage = () => {
     }, 400);
   };
 
-
-
-
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       fileChangeHandler(File1path);
@@ -263,11 +259,6 @@ const CompareImage = () => {
     fileChangeHandler,
     File1path,
   ]);
-
-
-
-
-
 
   ////////////////////////////test download//////////////////////////////
 
