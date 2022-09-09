@@ -88,24 +88,6 @@ const CompareImage = () => {
 
   /////////////////////////drag and drop file upload/////////////////////////////
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      fileChangeHandler(File1path);
-    }, 500);
-    return () => {
-      setLoading(false);
-      clearTimeout(timeoutId);
-    };
-  }, [
-    rotation,
-    quality,
-    compressFormat,
-    maxWidth,
-    maxHeight,
-    ExportbtnEnable,
-    fileChangeHandler,
-    File1path,
-  ]);
 
   ////Left side
   const {
@@ -201,10 +183,9 @@ const CompareImage = () => {
 
   const dateFile1path =
     File1path && new Date(File1path.lastModified).toString().slice(0, 15);
-  // console.log(dateFile1path);
+
   const dateFile2path =
     File2path && new Date(File2path.lastModified).toString().slice(0, 15);
-  // console.log(dateFile2path);
 
   ////////////////////////// Convert Image to base64 ///////////////////////////////
 
@@ -260,6 +241,33 @@ const CompareImage = () => {
       setLoading(false);
     }, 400);
   };
+
+
+
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      fileChangeHandler(File1path);
+    }, 500);
+    return () => {
+      setLoading(false);
+      clearTimeout(timeoutId);
+    };
+  }, [
+    rotation,
+    quality,
+    compressFormat,
+    maxWidth,
+    maxHeight,
+    ExportbtnEnable,
+    fileChangeHandler,
+    File1path,
+  ]);
+
+
+
+
+
 
   ////////////////////////////test download//////////////////////////////
 
