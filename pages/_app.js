@@ -1,7 +1,7 @@
 import Layout from "../Components/Layout/layout";
 import "../styles/globals.scss";
 import { ThemeProvider } from "theme-ui";
-import theme from "./theme";
+import theme from "../styles/theme";
 import Head from "next/head";
 import { SSRProvider } from "react-bootstrap";
 
