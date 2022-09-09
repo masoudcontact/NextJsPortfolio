@@ -127,7 +127,15 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
                 ],
               }}
             >
-              <h3 sx={{ color: "#dc3545" }}>Libraries used at this Site</h3>
+              <h3
+                sx={{
+                  color: "#dc3545",
+                  wordBreak: "break-word",
+                  padding: "1rem",
+                }}
+              >
+                Libraries used at this Site
+              </h3>
               <br />
               <ol
                 sx={{
