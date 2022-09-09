@@ -1,0 +1,18 @@
+.divegrid {
+  display: grid !important;
+  gap: 1rem;
+  grid-template-columns: 3fr 1fr;
+}
+
+.ullist {
+  line-height: 0;
+  color: white !important;
+}
+
+.divegrid > div {
+  color: white;
+}
+.divegrid > div:hover,
+.divegrid > div:focus {
+  color: rgb(255, 0, 0);
+}

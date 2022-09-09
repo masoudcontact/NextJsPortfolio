@@ -1,0 +1,50 @@
+$Cmp--color: rgba(175, 175, 175, 0.6);
+$Cmp--color-light: rgba(63, 63, 63, 1);
+$Cmp--color-dark: rgba(0, 0, 0);
+$Cmp--color-white: rgba(255, 255, 255);
+$Cmp--color-shadow: rgba(63, 63, 63, 0.8);
+
+.ContainerSmall {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 1rem 0 1rem 0;
+  width: 100%;
+  min-height: 3rem;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  border: 2px double $Cmp--color-light;
+  border-radius: 0.5rem;
+  background: lighten($color: $Cmp--color, $amount: 40);
+  color: $Cmp--color-dark;
+  padding: 0.25rem 1rem 0.25rem 0.6rem;
+  cursor: pointer;
+  transition: color 250ms ease-in, background 250ms ease-in;
+  overflow: hidden;
+  text-align: center;
+  min-width: 8rem;
+  max-width: 10rem;
+
+  &:hover,
+  &:active {
+    background: lighten($color: $Cmp--color-shadow, $amount: 30);
+    color: $Cmp--color-dark;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &LongText {
+    @extend .ContainerSmall;
+
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+    min-width: fit-content;
+  }
+}

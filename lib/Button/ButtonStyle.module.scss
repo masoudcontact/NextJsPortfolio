@@ -1,0 +1,56 @@
+$Cmp--color: rgba(175, 175, 175, 0.6);
+$Cmp--color-light: rgba(63, 63, 63, 1);
+$Cmp--color-dark: rgba(0, 0, 0);
+$Cmp--color-white: rgba(255, 255, 255);
+$Cmp--color-shadow: rgba(63, 63, 63, 0.8);
+
+.languageBtn {
+  margin: 1rem 0 1rem 0;
+  width: 100%;
+  min-height: 3rem;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  border: 1px solid $Cmp--color-light;
+  border-radius: 0.5rem;
+  background: $Cmp--color;
+  color: $Cmp--color-dark;
+  padding: 0.25rem 1rem 0.25rem 0.6rem;
+  cursor: pointer;
+  transition: color 250ms ease-in, background 250ms ease-in;
+  overflow: hidden;
+  text-align: center;
+  min-width: 8rem;
+  max-width: 10rem;
+  max-height: 1rem;
+
+  &Long {
+    @extend .languageBtn;
+    min-width: 10rem;
+    max-width: 100%;
+    word-wrap: break-word;
+    & img {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: 0 0.5rem 0 0;
+      vertical-align: middle;
+    }
+  }
+
+  &:hover,
+  &:active {
+    background: $Cmp--color-shadow;
+    color: $Cmp--color-dark;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  & img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0 0.5rem 0 0;
+    vertical-align: middle;
+  }
+}

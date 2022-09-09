@@ -1,0 +1,107 @@
+.tg {
+  border-collapse: collapse;
+  border-color: #93a1a1;
+  border-spacing: 0;
+}
+.tg td {
+  background-color: #fdf6e3;
+  border-color: #93a1a1;
+  border-style: solid;
+  border-width: 1px;
+  color: #002b36;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+.tg th {
+  background-color: #657b83;
+  border-color: #93a1a1;
+  border-style: solid;
+  border-width: 1px;
+  color: #fdf6e3;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+.tg .tg-alz1 {
+  background-color: #eee8d5;
+  text-align: left;
+  vertical-align: top;
+}
+.tg .tg-0lax {
+  text-align: left;
+  vertical-align: top;
+}
+
+.Top_key {
+  left: 10px;
+  bottom: 0vh;
+  position: fixed;
+  text-align: center;
+  z-index: 99999 !important;
+}
+.Top_key img {
+  width: 30px;
+  z-index: 99999 !important;
+}
+
+.anchorBtn {
+  margin: 1rem 0 1rem 0;
+  font: inherit;
+  font-size: 2.2vmin;
+  font-weight: 600;
+  border: 1px solid rgba(54, 162, 235, 1);
+  border-radius: 0.5rem;
+  background: rgba(54, 162, 235, 0.2);
+  color: rgb(255, 255, 255);
+  /* padding: 0.5rem 1rem; */
+  cursor: pointer;
+  transition: color 250ms ease-in, background 250ms ease-in;
+  text-align: center;
+  /* white-space: nowrap; */
+}
+
+.anchorBtn:hover {
+  color: rgba(54, 162, 235, 1);
+}
+
+.dropzone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-width: 2px;
+  border-radius: 2px;
+  border-color: #eeeeee;
+  border-style: dashed;
+  background-color: #fafafa;
+  color: #bdbdbd;
+  outline: none;
+  transition: border 0.24s ease-in-out;
+}
+
+.customeTheme {
+  color: #000000 !important;
+  border: 1px solid rgba(54, 162, 235, 1) !important;
+  border-radius: 0.5rem !important;
+  background: rgba(124, 203, 255, 0.8) !important;
+}
+.customeTheme.place-top:after {
+  border: 1px solid rgba(54, 162, 235, 1) !important;
+  border-radius: 0.5rem !important;
+  background: rgba(124, 203, 255, 0.8) !important;
+}
+
+@media screen and (min-width: 50rem) {
+  .anchorBtn {
+    margin: 1rem 0 1rem 0;
+    font: inherit;
+    font-size: 0.8rem;
+  }
+}

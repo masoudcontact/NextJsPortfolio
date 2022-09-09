@@ -1,0 +1,39 @@
+$preBcl: white;
+$stringCl: green;
+$string_font_size: 1.2rem;
+$numberCl: darkorange;
+$number_font_size: 1.2rem;
+$booleanCl: blue;
+$boolean_font_size: 1.2rem;
+$nullCl: magenta;
+$null_font_size: 1.2rem;
+$keyCl: red;
+$key_font_size: 1.2rem;
+
+.preStyle {
+  outline: 1px solid rgb(2, 175, 255);
+  padding: 5px;
+  margin: 5px;
+  background-color: var($preBcl);
+  border-radius: 0.5rem;
+  > .string {
+    color: var($stringCl);
+    font-size: var($string_font_size);
+  }
+}
+.number {
+  color: var($numberCl);
+  font-size: var($number_font_size);
+}
+.boolean {
+  color: var($booleanCl);
+  font-size: -var($boolean_font_size);
+}
+.null {
+  color: var($nullCl);
+  font-size: -var($null_font_size);
+}
+.key {
+  color: var($keyCl);
+  font-size: var($key_font_size);
+}

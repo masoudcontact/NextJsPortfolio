@@ -1,0 +1,164 @@
+/* * {
+  box-sizing: border-box;
+} */
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.users {
+  margin: 2rem auto;
+  width: 80%;
+  max-width: 80%;
+}
+
+.tableTitle {
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  font-size: large;
+  max-width: 80%;
+}
+.userTable {
+  border: 0px solid rgb(255, 255, 255);
+  /* border-radius: 10px; */
+  margin: auto;
+  border-collapse: collapse;
+  min-width: 100%;
+  max-width: 100%;
+  line-height: 0.5rem;
+  align-items: center;
+  padding: 0;
+  color: antiquewhite;
+}
+
+.userTable thead {
+  background-color: darkgray;
+  color: #ccc;
+  /* border-radius: 10px; */
+  border-collapse: collapse;
+  height: 1.5rem;
+}
+.userTable td,
+.userTable th {
+  border: 0px solid rgba(243, 242, 242, 0.2);
+  color: antiquewhite;
+  text-align: center;
+  /* border-radius: 4px; */
+  border-collapse: collapse;
+  height: 1.4rem;
+  word-wrap: break-word;
+  text-decoration: none;
+}
+
+.userTable tr {
+  color: antiquewhite;
+  padding: 0;
+}
+.userTable tr:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.userTable tr:nth-child(even) {
+  background-color: gray;
+  color: antiquewhite;
+}
+
+.toptable {
+  margin: auto;
+  display: flex;
+  flex-grow: 4;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  background: url(../../../public/Images/CoinBackGround.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 86%;
+  filter: grayscale(100%);
+}
+
+.toptable_childL {
+  flex: 1 1 max-content;
+  justify-content: left;
+  margin: -4rem 0 0 1rem;
+}
+
+.toptable_childM {
+  flex: 1 1 max-content;
+  justify-content: center;
+}
+.toptable_childR {
+  flex: 1 1 max-content;
+  justify-content: right;
+}
+
+.dropdown {
+  width: 100%;
+  height: 38px;
+  margin: 0 0.5rem 0.6rem 0.5rem;
+  color: #0a58ca;
+  border-radius: 5px;
+}
+
+.infotable {
+  font-size: small;
+  font-weight: 700;
+  color: red;
+}
+
+/* Responsive layout - makes a one column layout (100%) instead of a two-column layout (50%) */
+@media (max-width: 965px) {
+  .ftoptable-right,
+  .ftoptable-Middle,
+  .toptable-left {
+    flex: 100%;
+  }
+
+  .userTable thead {
+    display: none;
+  }
+
+  .userTable,
+  .userTable tbody,
+  .userTable tr,
+  .userTable td {
+    display: block;
+    width: 100%;
+  }
+  .userTable tr {
+    margin-bottom: 15px;
+  }
+  .userTable tr:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+  }
+  .userTable td {
+    text-align: right;
+    padding-left: 50%;
+    text-align: right;
+    position: relative;
+  }
+  .userTable td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .toptable_childL {
+    flex: 1 1 max-content;
+    /* justify-content: center; */
+    margin-left: 50%;
+  }
+}

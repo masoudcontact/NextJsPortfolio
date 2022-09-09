@@ -1,0 +1,33 @@
+$dropdown-bg: #292121;
+$dropdown-border-color: rgba(54, 162, 235, 1);
+$dropdown-border-radius: 0.4rem;
+$dropdown-link-color: #fff;
+$dropdown-link-hover-color: red;
+$dropdown-link-hover-bg: #37383a;
+$dropdown-dark-link-hover-color: red;
+$dropdown-divider-bg: #ffffff;
+$dropdown-border: 1px solid #ffffff !important;
+
+$pagination-color: rgba(0, 0, 0, 50%);
+$pagination-active-color: lightgrey;
+$pagination-disabled-color: grey;
+$pagination-bg: rgba(128, 128, 128, 40%);
+$pagination-disabled-bg: lightgrey;
+$pagination-active-bg: rgba(0, 0, 0, 50%);
+
+$accordion-bg: rgb(33, 37, 41);
+$accordion-color: rgb(255, 255, 255);
+$accordion-button-color: rgb(255, 255, 255);
+
+$accordion-button-active-bg: rgba(33, 37, 41, 40%);
+$accordion-button-active-color: rgb(255, 255, 255);
+
+// $accordion-item: rgb(0, 115, 255);
+// $accordion-button-bg: rgb(0, 207, 17);
+
+$body-bg: transparent;
+$body-color: rgba(128, 128, 128, 20%);
+
+$link-decoration: none;
+
+@import "~bootstrap/scss/bootstrap.scss";

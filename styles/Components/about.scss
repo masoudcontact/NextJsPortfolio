@@ -1,0 +1,241 @@
+@import "./Variables";
+
+.container {
+  font-weight: 600;
+  font-size: large;
+  border: 1px solid $progressBar-bg--color-light;
+  background: $progressBar-bg--color;
+  color: $progressBar-bg--color-dark;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: auto;
+  max-width: 90%;
+  margin-bottom: 1rem;
+  overflow: scroll;
+}
+
+.ulabout {
+  list-style-type: square;
+}
+
+.textareatweet {
+  width: 100%;
+  height: 300px;
+}
+
+.litweet {
+  list-style-type: decimal;
+  position: relative;
+}
+
+.watermatkchilds:nth-child(1) {
+  grid-area: one;
+}
+.watermatkchilds:nth-child(2) {
+  grid-area: two;
+}
+.watermatkchilds:nth-child(3) {
+  grid-area: three;
+}
+.watermatkchilds:nth-child(4) {
+  grid-area: four;
+}
+.watermatkchilds:nth-child(5) {
+  grid-area: five;
+}
+.watermatkchilds:nth-child(6) {
+  grid-area: six;
+}
+
+.watermarkdiv {
+  display: grid;
+  gap: 1rem;
+  grid-template-areas:
+    "two two"
+    "one three"
+    "four five ";
+  height: 12rem;
+  align-content: space-around;
+  padding-top: 5rem;
+}
+
+.bkgimage {
+  width: 100%;
+  border-radius: 1rem;
+  border: 5sold black;
+}
+.twitterdiv {
+  position: relative;
+}
+.flextbtn {
+  display: flex;
+  top: 0;
+  margin: 0 auto auto auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 80%;
+}
+.textareamain {
+  border-radius: 0.5rem;
+  width: 100%;
+  resize: initial;
+  min-height: 6rem;
+  height: fit-content;
+}
+
+.languagebtn {
+  margin: 1rem 0 1rem 0;
+  width: 100%;
+  min-height: 3rem;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: 1px solid $progressBar-bg--color-light;
+  background: $progressBar-bg--color;
+  color: $progressBar-bg--color-dark;
+  padding: 0.25rem 1rem 0.25rem 0.6rem;
+  cursor: pointer;
+  transition: color 250ms ease-in, background 250ms ease-in;
+  overflow: hidden;
+  text-align: center;
+  min-width: 8rem;
+  max-width: 10rem;
+}
+
+.languagebtn:hover,
+.languagebtn:active {
+  background: $progressBar-bg--color-shadow;
+  color: $progressBar-bg--color-dark;
+}
+
+.languagebtn:focus {
+  outline: none;
+}
+.lorembox {
+  margin: 1rem 0 1rem 0;
+  width: 100%;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: 1px solid $progressBar-bg--color-light;
+  background: $progressBar-bg--color;
+  color: $progressBar-bg--color-dark;
+  padding: 0.25rem 1rem 0.25rem 0.6rem;
+  cursor: pointer;
+  transition: color 250ms ease-in, background 250ms ease-in;
+  min-width: 4rem;
+  overflow: hidden;
+  text-align: center;
+  min-height: 3rem;
+}
+
+.lorembox:hover,
+.lorembox:active {
+  background: $progressBar-bg--color-shadow;
+  color: $progressBar-bg--color-dark;
+}
+
+.lorembox:focus {
+  outline: none;
+}
+
+.nvbbtn {
+  flex: 1 1 inherit;
+  color: rgb(37, 53, 104, 1);
+  text-transform: capitalize;
+  font-weight: 800;
+}
+.nvbbtn:hover {
+  color: #8c50ff !important;
+}
+
+.cta {
+  font: inherit;
+  font-weight: 500;
+  border: 1px solid $progressBar-bg--color-light;
+  background: $progressBar-bg--color;
+  color: $progressBar-bg--color-dark;
+  padding: 0.25rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: color 250ms ease-in, background 250ms ease-in;
+  min-width: 8rem;
+  align-items: right;
+  width: 100%;
+}
+
+.cta:hover,
+.button:active {
+  background: rgba(54, 162, 235, 0.502);
+  color: black;
+}
+
+.rangeselector {
+  width: 80px;
+}
+.ReadmeBtn {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 50rem) {
+  .ReadmeBtn {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .languagebtn {
+    margin: 1rem 0 1rem 0;
+    width: 100%;
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: 1px solid $progressBar-bg--color-light;
+    background: $progressBar-bg--color;
+    color: $progressBar-bg--color-dark;
+    padding: 0.25rem 0rem;
+    cursor: pointer;
+    transition: color 250ms ease-in, background 250ms ease-in;
+    min-width: 8rem;
+    max-width: 10rem;
+    height: 3rem;
+  }
+  .watermarkdiv {
+    grid-template-areas: "four five six one two three ";
+    /* justify-content: space-evenly;
+    justify-items: center; */
+    align-content: space-evenly;
+    align-items: center;
+    height: 100px;
+    padding-top: 3rem;
+  }
+
+  .watermatkchilds:nth-child(1) {
+    justify-self: center;
+    width: 1fr;
+  }
+  .watermatkchilds:nth-child(2) {
+    width: 1fr;
+  }
+  .watermatkchilds:nth-child(3) {
+    width: 2fr;
+  }
+  .cta {
+    font: inherit;
+    font-weight: 500;
+    border: 1px solid $progressBar-bg--color-light;
+    background: $progressBar-bg--color;
+    color: $progressBar-bg--color-dark;
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: color 250ms ease-in, background 250ms ease-in;
+    min-width: 8rem;
+    align-items: right;
+    width: 20vw;
+  }
+}
