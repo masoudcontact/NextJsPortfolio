@@ -337,7 +337,11 @@ function Compare() {
           />
         </Head>
 
-        <Grid columns={[2, "2fr 1fr"]} gap={2} sx={{ maxHeight: "22rem" }}>
+        <Grid
+          columns={[1, 1, "2fr 1fr"]}
+          gap={2}
+          sx={{ maxHeight: ["100%", "100%", "22rem"] }}
+        >
           <Box>
             {foundCoins && foundCoins2 && (
               <Chart data={foundCoins} data2={foundCoins2} />
@@ -440,7 +444,11 @@ function Compare() {
         <Grid>
           <hr />
 
-          <Grid columns={[2, "2fr 1fr"]} gap={2}>
+          <Grid
+            columns={[1, 1, "2fr 1fr"]}
+            gap={2}
+            sx={{ maxHeight: ["100%", "100%", "22rem"] }}
+          >
             <Box>
               <div
                 className="emptybigcontainer"

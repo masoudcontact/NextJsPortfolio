@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
-import { Card, Grid, Box } from "theme-ui";
+import { Card, Grid, Box, Flex, Text } from "theme-ui";
 import pdficon from "../public/Images/PDF.png";
 import Gform from "../public/Images/Gform.png";
 import Skills from "../lib/Skill/Skill";
@@ -145,16 +145,31 @@ const About = () => {
           variant: "layout.root",
         }}
       >
-        <Grid columns={[2, "2fr 1fr"]} gap={2}>
+        <Grid columns={[1]}>
           <Box>
             <h1>About Me</h1>
-            <h4>
-              A regex test is a tool that lets you test on a regular expression,
-              which is a pattern you type into a text field. It`&apos;`s used to
-              check for a specific pattern in the text. Regular expressions are
-              a ubiquitous part of programming languages.Learn how to use
-              regular expressions to make your everyday life easier.
-            </h4>
+            <Text
+              sx={{
+                fontSize: [0, 1],
+                fontWeight: "bold",
+                display: "block",
+                whiteSpace: "pre-line",
+                wordBreak: "break-word",
+              }}
+            >
+              Overall 8+ years of Information Technology experience in Web
+              design and development of ERP application.
+              <br />
+              Overall 4+ years of extensive experience as a Front-End UI
+              Developer with solid understanding of database designing,
+              <br /> development, and installation of different modules.
+              <br /> Extensive experience in Designing professional UI web
+              applications using front-end technologies like HTML5, CSS3,
+              JavaScript, reactJS, XML, DHTML, XHTML, JSON
+              <br />
+              Excellent Understanding of Document Object Model (DOM) and DOM
+              Functions.
+            </Text>
           </Box>
         </Grid>
 
@@ -188,7 +203,7 @@ const About = () => {
           }}
         >
           <Grid
-            columns={[2, "1fr 2fr"]}
+            columns={[1, "1fr 2fr"]}
             gap={2}
             sx={{
               alignItems: "center",
@@ -250,22 +265,23 @@ const About = () => {
       </Card>
 
       <hr />
+      <Flex sx={{ justifyContent: "center" }}>
+        <ButtonMn
+          onClick={() => seturlSrc(ResumeFile)}
+          style={{ width: "20rem", textAlign: "left" }}
+          image={pdficon}
+        >
+          &nbsp; View Resume
+        </ButtonMn>
+        <ButtonMn
+          onClick={() => seturlSrc(initialURL)}
+          style={{ width: "20rem", textAlign: "left" }}
+          image={Gform}
+        >
+          &nbsp; Contact Form
+        </ButtonMn>
+      </Flex>
 
-      <ButtonMn
-        onClick={() => seturlSrc(ResumeFile)}
-        style={{ width: "20rem", textAlign: "left" }}
-        image={pdficon}
-      >
-        &nbsp; View Resume
-      </ButtonMn>
-      {/* /////////form */}
-      <ButtonMn
-        onClick={() => seturlSrc(initialURL)}
-        style={{ width: "20rem", textAlign: "left" }}
-        image={Gform}
-      >
-        &nbsp; Contact Form
-      </ButtonMn>
       <hr />
       <details style={{ color: "#CCC" }}>
         <summary className="infotext">- View Other Certificates</summary>

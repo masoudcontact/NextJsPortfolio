@@ -125,7 +125,11 @@ const Details = ({ coin }) => {
           content={`Every Thing About The ${coin.id} , and more`}
         />
       </Head>
-      <Grid columns={[2, "2fr 1fr"]} gap={2} sx={{ maxHeight: "22rem" }}>
+      <Grid
+        columns={[1, 1, "2fr 1fr"]}
+        gap={2}
+        sx={{ maxHeight: ["100%", "100%", "22rem"] }}
+      >
         <Box>{chartData && <Chart data={chartData} data2={[]} />}</Box>
 
         <Box>
@@ -162,15 +166,9 @@ const Details = ({ coin }) => {
               <option value={Object.values(timeController[6])}>5Y</option>
             </>
           </select>
-          <ul>
-            {HttpGetter(coin.links).map((item) => {
-              return (
-                <li key={item}>
-                  <a href={item}>{item}</a>
-                </li>
-              );
-            })}
-          </ul>
+          <Box>
+            <HttpGetter coin={coin.links} />
+          </Box>
         </Box>
       </Grid>
 

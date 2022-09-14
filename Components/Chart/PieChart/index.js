@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useState, useEffect, useCallback } from "react";
 import { PieChart, Pie, Sector } from "recharts";
-import style from "./Chart.module.css";
+import style from "./Chart.module.scss";
+import { Box, Grid } from "theme-ui";
+import BackImage from "../../../public/Images/CoinBackGround.webp";
 
 function MyPieChart(props) {
   const RADIAN = Math.PI / 180;
@@ -102,8 +104,15 @@ export default function App() {
   });
 
   return (
-    <div className={style.toptable}>
-      <div className={style.toptable_childL}>
+    <Grid
+      columns={[1, 1, "1fr 1fr"]}
+      sx={{
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+      className={style.toptable}
+    >
+      <Box>
         <PieChart width={550} height={350}>
           <Pie
             activeIndex={activeIndex}
@@ -118,8 +127,8 @@ export default function App() {
             onMouseEnter={onPieEnter}
           />
         </PieChart>
-      </div>
-      <div className={style.toptable_childR}>
+      </Box>
+      <Box>
         <table className={style.userTable}>
           <thead>
             <tr>
@@ -138,7 +147,7 @@ export default function App() {
             ))}
           </tbody>
         </table>
-      </div>
-    </div>
+      </Box>
+    </Grid>
   );
 }

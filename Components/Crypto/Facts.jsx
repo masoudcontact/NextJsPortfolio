@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-// import style from "../../styles/SCSS/UsersList.module.scss";
+import Head from "next/head";
 import { Card, Grid, Box, Text } from "theme-ui";
 import axios from "axios";
 import stock from "../../public/Images/stock.png";
@@ -8,6 +8,7 @@ import Paginate from "../../lib/Pagination/Paginate";
 import Select from "react-select";
 import DatePicker from "react-date-picker/dist/entry.nostyle";
 import Image from "next/image";
+import next from "next";
 
 function Crypto_fun_facts({ coins }) {
   const coinCTX = coins;
@@ -262,10 +263,6 @@ function Crypto_fun_facts({ coins }) {
       <Card
         sx={{
           color: "primary",
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100vh",
-          variant: "layout.root",
         }}
       >
         <div>
@@ -280,409 +277,405 @@ function Crypto_fun_facts({ coins }) {
       <Card
         sx={{
           color: "primary",
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100vh",
-          variant: "layout.root",
         }}
       >
-        <div>
-          {/* /////////////////////////////////////////////////////Chart////////////////////////////////////////////////////// */}
+        <Head>
+          <title>Fun Facts</title>
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="description" content={`Some Fun Fact About the Coins`} />
+        </Head>
 
-          <Grid
-            columns={[2, "2fr 1fr"]}
-            gap={2}
-            sx={{
-              justifyContent: "space-around",
-              alignItems: "center",
-            }}
-          >
-            <Box>
-              <Grid columns={[1, "1fr 1fr"]} gap={2}>
-                <Box>Select Your Crypto Currency </Box>
-                <Box>
-                  <select
-                    className="MyDropdownsmall"
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Select Coin"
-                    value={name}
-                    // options={coinNameList}
-                  >
-                    {typeof coinCTX !== "undefined" ? (
-                      coinCTX.data.map((coin) => (
-                        <option key={coin.id} value={coin.symbol}>
-                          {coin.symbol}
-                        </option>
-                      ))
-                    ) : (
-                      <option value="btc">btc</option>
-                    )}
-                  </select>
-                </Box>
+        <Grid
+          columns={[1, 1, "2fr 1fr"]}
+          gap={3}
+          sx={{ maxHeight: ["100%", "100%", "22rem"] }}
+        >
+          <Box>
+            <Grid
+              columns={[1, 1, "1fr 1fr"]}
+              gap={2}
+              sx={{ maxHeight: ["100%", "100%", "22rem"] }}
+            >
+              <Box>Select Your Crypto Currency </Box>
+              <Box>
+                <select
+                  className="MyDropdownsmall"
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Select Coin"
+                  value={name}
+                  // options={coinNameList}
+                >
+                  {typeof coinCTX !== "undefined" ? (
+                    coinCTX.data.map((coin) => (
+                      <option key={coin.id} value={coin.symbol}>
+                        {coin.symbol}
+                      </option>
+                    ))
+                  ) : (
+                    <option value="btc">btc</option>
+                  )}
+                </select>
+              </Box>
 
-                <Box> Select Start Time</Box>
-                <Box>
-                  <DatePicker
-                    className="MyDropdownsmall"
-                    value={endDay || yesterday}
-                    minDate={new Date(2017, 7, 1)}
-                    maxDate={yesterday}
-                    onChange={(date) => setEndDay(date)}
-                    format="MM/dd/yyyy"
-                  />
-                </Box>
-                <Box>Select End Time </Box>
-                <Box>
-                  <DatePicker
-                    className="MyDropdownsmall"
-                    value={startDay || new Date()}
-                    minDate={new Date(2017, 7, 1)}
-                    maxDate={new Date()}
-                    onChange={(date) => {
-                      setStartDay(date);
-                    }}
-                    format="MM/dd/yyyy"
-                    // showYearDropdown
-                    // scrollableMonthYearDropdown
-                  />
-                </Box>
-                <Box>Money you Wish to Invest at Start? $ </Box>
-                <Box>
-                  <input
-                    type="number"
-                    className="MyDropdownsmall"
-                    onChange={(e) => setInvest(e.target.value)}
-                    value={Invest}
-                    placeholder="$ invest"
-                    min={0}
-                  />
-                </Box>
-                <Box> Maybe You Missed Lower price by %</Box>
-                <Box>
-                  <input
-                    type="number"
-                    className="MyDropdownsmall"
-                    onChange={(e) => setLowMiss(e.target.value)}
-                    value={LowMiss}
-                    placeholder="$ invest"
-                    min={0}
-                    max={100}
-                  />
-                </Box>
-                <Box>Maybe You Missed High price by % </Box>
-                <Box>
-                  <input
-                    type="number"
-                    className="MyDropdownsmall"
-                    onChange={(e) => setHighMiss(e.target.value)}
-                    value={HighMiss}
-                    placeholder="$ invest"
-                    min={0}
-                    max={100}
-                  />
-                </Box>
-              </Grid>
-            </Box>
-            <Box>
-              <div>
-                It does not necessarily mean that high prices always come after
-                low prices but Imagine if you could and just for fun , check if
-                you invest $&nbsp;
-                <b>{Invest.toLocaleString("en-US")}</b> at the lowest price
-                point. when ...
-                <ul>
-                  <li>
-                    - Highest <b>$ {Highest.toLocaleString("en-US")}</b>
-                    &nbsp;at
-                    <b>
-                      &nbsp;
-                      <HiestPriceDate />
-                    </b>
-                  </li>
-                  <li>
-                    - Lowest &nbsp;<b>$ {Lowest.toLocaleString("en-US")}</b>
-                    &nbsp;at
-                    <b>
-                      &nbsp;
-                      <LowestPriceDate />
-                    </b>
-                  </li>
-                  <li>
-                    - Difference possible to make:
-                    <b>
-                      $&nbsp;
-                      {loWToHigh(
-                        Invest,
-                        Lowest,
-                        Highest
-                      ).deffrencePrices.toLocaleString("en-US")}
-                    </b>
-                    <b>
-                      ~ %&nbsp;
-                      {loWToHigh(
-                        Invest,
-                        Lowest,
-                        Highest
-                      ).deffrencePricesPersent.toLocaleString("en-US")}
-                    </b>
-                  </li>
-                  <li>
-                    - Difference on sort sequence of Table:
-                    <b>
-                      $&nbsp;
-                      {priceInEndDay.toLocaleString("en-US")}
-                    </b>
-                  </li>
-                  <li>
-                    - Difference between Lowest & Highest with &nbsp;
-                    <b>
-                      $&nbsp;
-                      {Invest.toLocaleString("en-US")}
-                    </b>
-                    &nbsp; at start comes: &nbsp;
-                    <b>
-                      $&nbsp;
-                      {loWToHigh(Invest, Lowest, Highest).inHigh.toLocaleString(
-                        "en-US"
-                      )}
-                    </b>
-                    &nbsp; at the end.
-                  </li>
-                  <li>
-                    - Gains if you buy everyday at the lowest price of the day
-                    and sell at the highest price of the day. Regardless of this
-                    priority , you could make <b>$ {allGainsSum}</b>
-                  </li>
-                </ul>
-                <br />
-              </div>
-            </Box>
-          </Grid>
-
-          {foundCoins ? (
+              <Box> Select Start Time</Box>
+              <Box>
+                <DatePicker
+                  className="MyDropdownsmall"
+                  value={endDay || yesterday}
+                  minDate={new Date(2017, 7, 1)}
+                  maxDate={yesterday}
+                  onChange={(date) => setEndDay(date)}
+                  format="MM/dd/yyyy"
+                />
+              </Box>
+              <Box>Select End Time </Box>
+              <Box>
+                <DatePicker
+                  className="MyDropdownsmall"
+                  value={startDay || new Date()}
+                  minDate={new Date(2017, 7, 1)}
+                  maxDate={new Date()}
+                  onChange={(date) => {
+                    setStartDay(date);
+                  }}
+                  format="MM/dd/yyyy"
+                  // showYearDropdown
+                  // scrollableMonthYearDropdown
+                />
+              </Box>
+              <Box>Money you Wish to Invest at Start? $ </Box>
+              <Box>
+                <input
+                  type="number"
+                  className="MyDropdownsmall"
+                  onChange={(e) => setInvest(e.target.value)}
+                  value={Invest}
+                  placeholder="$ invest"
+                  min={0}
+                />
+              </Box>
+              <Box> Maybe You Missed Lower price by %</Box>
+              <Box>
+                <input
+                  type="number"
+                  className="MyDropdownsmall"
+                  onChange={(e) => setLowMiss(e.target.value)}
+                  value={LowMiss}
+                  placeholder="$ invest"
+                  min={0}
+                  max={100}
+                />
+              </Box>
+              <Box>Maybe You Missed High price by % </Box>
+              <Box>
+                <input
+                  type="number"
+                  className="MyDropdownsmall"
+                  onChange={(e) => setHighMiss(e.target.value)}
+                  value={HighMiss}
+                  placeholder="$ invest"
+                  min={0}
+                  max={100}
+                />
+              </Box>
+            </Grid>
+          </Box>
+          <Box>
             <div>
-              <div>
-                <div>
-                  <div className="toptablestatus"></div>
-                </div>
-              </div>
+              It does not necessarily mean that high prices always come after
+              low prices but Imagine if you could and just for fun , check if
+              you invest $&nbsp;
+              <b>{Invest.toLocaleString("en-US")}</b> at the lowest price point.
+              when ...
+              <ul>
+                <li>
+                  - Highest <b>$ {Highest.toLocaleString("en-US")}</b>
+                  &nbsp;at
+                  <b>
+                    &nbsp;
+                    <HiestPriceDate />
+                  </b>
+                </li>
+                <li>
+                  - Lowest &nbsp;<b>$ {Lowest.toLocaleString("en-US")}</b>
+                  &nbsp;at
+                  <b>
+                    &nbsp;
+                    <LowestPriceDate />
+                  </b>
+                </li>
+                <li>
+                  - Difference possible to make:
+                  <b>
+                    $&nbsp;
+                    {loWToHigh(
+                      Invest,
+                      Lowest,
+                      Highest
+                    ).deffrencePrices.toLocaleString("en-US")}
+                  </b>
+                  <b>
+                    ~ %&nbsp;
+                    {loWToHigh(
+                      Invest,
+                      Lowest,
+                      Highest
+                    ).deffrencePricesPersent.toLocaleString("en-US")}
+                  </b>
+                </li>
+                <li>
+                  - Difference on sort sequence of Table:
+                  <b>
+                    $&nbsp;
+                    {priceInEndDay.toLocaleString("en-US")}
+                  </b>
+                </li>
+                <li>
+                  - Difference between Lowest & Highest with &nbsp;
+                  <b>
+                    $&nbsp;
+                    {Invest.toLocaleString("en-US")}
+                  </b>
+                  &nbsp; at start comes: &nbsp;
+                  <b>
+                    $&nbsp;
+                    {loWToHigh(Invest, Lowest, Highest).inHigh.toLocaleString(
+                      "en-US"
+                    )}
+                  </b>
+                  &nbsp; at the end.
+                </li>
+                <li>
+                  - Gains if you buy everyday at the lowest price of the day and
+                  sell at the highest price of the day. Regardless of this
+                  priority , you could make <b>$ {allGainsSum}</b>
+                </li>
+              </ul>
+              <br />
             </div>
-          ) : (
-            <h2>{error}</h2>
-          )}
+          </Box>
+        </Grid>
 
-          <hr />
-          <Image src={stock} alt="stock" width="50" height="50" />
+        {foundCoins ? (
+          <div>
+            <hr />
+            <Image src={stock} alt="stock" width="50" height="50" />
 
-          <Grid columns={[1, 2, 1, 5]} gap={1}>
-            <Box
-              sx={{
-                textAlign: "center",
-                fontWeight: "600",
-                color: "#000",
-                border: "none",
-              }}
-            >
-              <input
-                type="text"
-                className="MyDropdown"
-                onChange={() => console.log()}
-                value={`${getNumberOfDays(startDay, endDay) + 1}  Days `}
-              />
-            </Box>
-            <Box>
-              <Select
-                className="MyDropdown"
-                options={paginationOptions}
-                onChange={optionSelectHandler}
-                defaultValue={{ value: 10, label: "10" }}
-              />
-            </Box>
-            <Box
-              sx={{
-                minWidth: "fit-content",
-                textAlign: "center",
-                fontWeight: "600",
-                color: "#000",
-                border: "none",
-              }}
-            >
-              <Pagination
-                itemsCount={foundCoins.length}
-                pageSize={pageSize}
-                onPageChange={PageChangeHandler}
-                currentPage={currentPage}
-                style={{
-                  width: "80%",
+            <Grid columns={[1, 2, 1, 5]} gap={1}>
+              <Box
+                sx={{
+                  textAlign: "center",
+                  fontWeight: "600",
+                  color: "#000",
+                  border: "none",
                 }}
-              />
-            </Box>
-            <Box
-              sx={{
-                textAlign: "center",
-                fontWeight: "600",
-                color: "green",
-                border: "none",
-              }}
-            >
-              <section type="text" className="MyDropdown infobox">
-                <b>$ {Lowest.toLocaleString("en-US")}</b>
-              </section>
-            </Box>
-            <Box
-              sx={{
-                textAlign: "center",
-                fontWeight: "600",
-                color: "red",
-                border: "none",
-              }}
-            >
-              <section type="text" className="MyDropdown infobox">
-                <b>$ {Highest.toLocaleString("en-US")}</b>
-              </section>
-            </Box>
-          </Grid>
-          <table className="userTable" rules="all">
-            <thead>
-              <tr>
-                <th
-                  onClick={() => sorting("time")}
-                  className="tg-yuap"
-                  style={{ overflowWrap: "break-word", width: "10%" }}
-                >
-                  Time
-                </th>
-                <th
-                  onClick={() => sorting("low")}
-                  className="tg-0pky"
-                  style={{ overflowWrap: "break-word", width: "20%" }}
-                >
-                  Low $
-                </th>
-                <th
-                  onClick={() => sorting("high")}
-                  className="tg-0pky"
-                  style={{ overflowWrap: "break-word", width: "20%" }}
-                >
-                  High $
-                </th>
-                <th
-                  className="tg-0pky"
-                  style={{ overflowWrap: "break-word", width: "10%" }}
-                >
-                  Tolerance %
-                </th>
-                <th
-                  className="tg-0pky"
-                  style={{ overflowWrap: "break-word", width: "15%" }}
-                >
-                  Low with {LowMiss}% Missed
-                </th>
-                <th
-                  className="tg-0pky"
-                  style={{ overflowWrap: "break-word", width: "15%" }}
-                >
-                  High with {HighMiss}% Missed
-                </th>
-                <th
-                  className="tg-0lax"
-                  style={{ overflowWrap: "break-word", width: "15%" }}
-                >
-                  Gain $
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {foundCoins !== "undefined" &&
-                // foundCoins.Data.map((coin) => (
-                paginatedFilteredCoins
-                  .filter((coin) => coin !== null)
-                  .map((coin) => (
-                    <tr key={coin.time}>
-                      {/* Time */}
-                      <td data-label="Time" className="tg-c3ow">
-                        {new Date(coin.time * 1000).toLocaleDateString("en-US")}
-                      </td>
-                      {/* Low */}
-                      <td
-                        data-label="Low $"
-                        className="tg-0pky"
-                        style={{
-                          color:
-                            coin.low.toLocaleString("en-US") ==
-                            Lowest.toLocaleString("en-US")
-                              ? "red"
-                              : "",
-                        }}
-                      >
-                        $ {coin.low.toLocaleString("en-US")}
-                      </td>
-                      {/* High */}
-                      <td
-                        data-label="High $"
-                        className="tg-0pky"
-                        style={{
-                          color:
-                            coin.high.toLocaleString("en-US") ==
-                            Highest.toLocaleString("en-US")
-                              ? "green"
-                              : "",
-                        }}
-                      >
-                        $ {coin.high.toLocaleString("en-US")}
-                      </td>
-                      {/* Tolerance */}
-                      <td data-label="Tolerance %" className="tg-0pky">
-                        %
-                        {(
-                          ((coin.high - coin.low) /
-                            ((coin.high + coin.low) / 2)) *
-                          100
-                        ).toLocaleString("en-US")}
-                      </td>
-                      {/* Low With 0% Missed */}
-                      <td data-label="Low with Missed" className="tg-0pky">
-                        %
-                        {(
-                          Invest /
-                          (coin.low + (coin.low * LowMiss) / 100)
-                        ).toLocaleString("en-US")}
-                      </td>
-                      {/* High With 0% Missed */}
-                      <td data-label="High with Missed" className="tg-0pky">
-                        $
-                        {(
-                          (Invest / (coin.low + (coin.low * LowMiss) / 100)) *
-                          (coin.high - (coin.high * HighMiss) / 100)
-                        ).toLocaleString("en-US")}
-                      </td>
-                      {/* gain */}
-                      <td
-                        data-label="Gain"
-                        className="tg-0lax"
-                        style={{
-                          color:
+              >
+                <input
+                  type="text"
+                  className="MyDropdown"
+                  onChange={() => console.log()}
+                  value={`${getNumberOfDays(startDay, endDay) + 1}  Days `}
+                />
+              </Box>
+              <Box>
+                <Select
+                  className="MyDropdown"
+                  options={paginationOptions}
+                  onChange={optionSelectHandler}
+                  defaultValue={{ value: 10, label: "10" }}
+                />
+              </Box>
+              <Box
+                sx={{
+                  minWidth: "fit-content",
+                  textAlign: "center",
+                  fontWeight: "600",
+                  color: "#000",
+                  border: "none",
+                }}
+              >
+                <Pagination
+                  itemsCount={foundCoins.length}
+                  pageSize={pageSize}
+                  onPageChange={PageChangeHandler}
+                  currentPage={currentPage}
+                  style={{
+                    width: "80%",
+                  }}
+                />
+              </Box>
+              <Box
+                sx={{
+                  textAlign: "center",
+                  fontWeight: "600",
+                  color: "green",
+                  border: "none",
+                }}
+              >
+                <section type="text" className="MyDropdown infobox">
+                  <b>$ {Lowest.toLocaleString("en-US")}</b>
+                </section>
+              </Box>
+              <Box
+                sx={{
+                  textAlign: "center",
+                  fontWeight: "600",
+                  color: "red",
+                  border: "none",
+                }}
+              >
+                <section type="text" className="MyDropdown infobox">
+                  <b>$ {Highest.toLocaleString("en-US")}</b>
+                </section>
+              </Box>
+            </Grid>
+            <table className="userTable" rules="all">
+              <thead>
+                <tr>
+                  <th
+                    onClick={() => sorting("time")}
+                    className="tg-yuap"
+                    style={{ overflowWrap: "break-word", width: "10%" }}
+                  >
+                    Time
+                  </th>
+                  <th
+                    onClick={() => sorting("low")}
+                    className="tg-0pky"
+                    style={{ overflowWrap: "break-word", width: "20%" }}
+                  >
+                    Low $
+                  </th>
+                  <th
+                    onClick={() => sorting("high")}
+                    className="tg-0pky"
+                    style={{ overflowWrap: "break-word", width: "20%" }}
+                  >
+                    High $
+                  </th>
+                  <th
+                    className="tg-0pky"
+                    style={{ overflowWrap: "break-word", width: "10%" }}
+                  >
+                    Tolerance %
+                  </th>
+                  <th
+                    className="tg-0pky"
+                    style={{ overflowWrap: "break-word", width: "15%" }}
+                  >
+                    Low with {LowMiss}% Missed
+                  </th>
+                  <th
+                    className="tg-0pky"
+                    style={{ overflowWrap: "break-word", width: "15%" }}
+                  >
+                    High with {HighMiss}% Missed
+                  </th>
+                  <th
+                    className="tg-0lax"
+                    style={{ overflowWrap: "break-word", width: "15%" }}
+                  >
+                    Gain $
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {foundCoins !== "undefined" &&
+                  paginatedFilteredCoins
+                    .filter((coin) => coin !== null)
+                    .map((coin) => (
+                      <tr key={coin.time}>
+                        {/* Time */}
+                        <td data-label="Time" className="tg-c3ow">
+                          {new Date(coin.time * 1000).toLocaleDateString(
+                            "en-US"
+                          )}
+                        </td>
+                        {/* Low */}
+                        <td
+                          data-label="Low $"
+                          className="tg-0pky"
+                          style={{
+                            color:
+                              coin.low.toLocaleString("en-US") ==
+                              Lowest.toLocaleString("en-US")
+                                ? "red"
+                                : "",
+                          }}
+                        >
+                          $ {coin.low.toLocaleString("en-US")}
+                        </td>
+                        {/* High */}
+                        <td
+                          data-label="High $"
+                          className="tg-0pky"
+                          style={{
+                            color:
+                              coin.high.toLocaleString("en-US") ==
+                              Highest.toLocaleString("en-US")
+                                ? "green"
+                                : "",
+                          }}
+                        >
+                          $ {coin.high.toLocaleString("en-US")}
+                        </td>
+                        {/* Tolerance */}
+                        <td data-label="Tolerance %" className="tg-0pky">
+                          %
+                          {(
+                            ((coin.high - coin.low) /
+                              ((coin.high + coin.low) / 2)) *
+                            100
+                          ).toLocaleString("en-US")}
+                        </td>
+                        {/* Low With 0% Missed */}
+                        <td data-label="Low with Missed" className="tg-0pky">
+                          %
+                          {(
+                            Invest /
+                            (coin.low + (coin.low * LowMiss) / 100)
+                          ).toLocaleString("en-US")}
+                        </td>
+                        {/* High With 0% Missed */}
+                        <td data-label="High with Missed" className="tg-0pky">
+                          $
+                          {(
+                            (Invest / (coin.low + (coin.low * LowMiss) / 100)) *
+                            (coin.high - (coin.high * HighMiss) / 100)
+                          ).toLocaleString("en-US")}
+                        </td>
+                        {/* gain */}
+                        <td
+                          data-label="Gain"
+                          className="tg-0lax"
+                          style={{
+                            color:
+                              (Invest /
+                                (coin.low + (coin.low * LowMiss) / 100)) *
+                                (coin.high - (coin.high * HighMiss) / 100) -
+                                Invest >=
+                              0
+                                ? "green"
+                                : "red",
+                          }}
+                        >
+                          $
+                          {(
                             (Invest / (coin.low + (coin.low * LowMiss) / 100)) *
                               (coin.high - (coin.high * HighMiss) / 100) -
-                              Invest >=
-                            0
-                              ? "green"
-                              : "red",
-                        }}
-                      >
-                        $
-                        {(
-                          (Invest / (coin.low + (coin.low * LowMiss) / 100)) *
-                            (coin.high - (coin.high * HighMiss) / 100) -
-                          Invest
-                        ).toLocaleString("en-US")}
-                      </td>
-                    </tr>
-                  ))}
-            </tbody>
-          </table>
-          <hr />
-        </div>
+                            Invest
+                          ).toLocaleString("en-US")}
+                        </td>
+                      </tr>
+                    ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <h2>{error}</h2>
+        )}
+
+        <hr />
       </Card>
     );
   } else {

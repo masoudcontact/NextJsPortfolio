@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { Card, Grid, Box, Flex } from "theme-ui";
+import { Card, Grid, Box, Text } from "theme-ui";
 import InputEmoji from "react-input-emoji";
 import LoremMaker from "../../lib/LoremMaker";
 import ReactTooltip from "react-tooltip";
@@ -102,13 +102,21 @@ const Twittespl = () => {
             automatically. You can split the tweet by time or by character."
           />
         </Head>
-        <Grid columns={[2, "2fr 1fr"]} gap={2}>
+        <Grid columns={[1, 1, "2fr 1fr"]} gap={2}>
           <Box>
             <h1>Twitte Splitter</h1>
-            <h4>
+            <Text
+              sx={{
+                fontSize: [0, 1],
+                fontWeight: "bold",
+                display: "block",
+                whiteSpace: "pre-line",
+                wordBreak: "break-word",
+              }}
+            >
               This tweet splitter will split a long tweet into multiple tweets
               automatically. You can split the tweet by time or by character.
-            </h4>
+            </Text>
           </Box>
           <Box></Box>
         </Grid>
@@ -224,18 +232,17 @@ const Twittespl = () => {
             gap={2}
             columns={[1, 3, 5]}
             sx={{
-              paddingTop: "0",
+              padding: "1rem",
               minHeight: "5rem",
-              display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              alignContent: "flex-start",
-              alignSelf: "flex-start",
+              alignContent: "center",
+              justifyItems: "center",
             }}
           >
             <Box>
-              <div className="watermatkchilds" style={{ marginTop: "10px" }}>
-                ↔️ &nbsp;{posWatermark}&nbsp;
+              <div style={{ marginTop: "10px" }}>
+                ↔️ &nbsp;{posWatermark || "24"}&nbsp;
                 <input
                   type="range"
                   min={1}
@@ -266,12 +273,12 @@ const Twittespl = () => {
                       JSON.stringify(e.target.value)
                     )
                   )}
-                  style={{ transform: "rotate(90deg)" }}
+                  style={{ transform: "rotate(270deg)" }}
                   className="rangeselector"
                   data-for="main"
                   data-tip="Change the WaterMark Position"
                 />
-                ↕️ &nbsp;{posverWatermark}
+                ↕️ &nbsp;{posverWatermark || "24"}&nbsp;
               </div>
             </Box>
             <Box>
@@ -305,7 +312,6 @@ const Twittespl = () => {
             </Box>
             <Box>
               <ButtonMn
-                className="watermatkchilds languagebtn"
                 onClick={() =>
                   tweet !== ""
                     ? (setTweet(""),
@@ -327,6 +333,7 @@ const Twittespl = () => {
             </Box>
           </Grid>
         </Card>
+
         <hr />
         <Card>
           <ul>
@@ -375,7 +382,7 @@ const Twittespl = () => {
                 ))
               : ""}
           </ul>
-          <ReactTooltip
+          {/* <ReactTooltip
             id="main"
             multiline={true}
             place="bottom"
@@ -383,7 +390,7 @@ const Twittespl = () => {
             effect="float"
             className="customeTheme"
             delayHide={800}
-          />
+          /> */}
         </Card>
       </Card>
     </motion.div>

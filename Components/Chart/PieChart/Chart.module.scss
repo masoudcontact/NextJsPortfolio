@@ -68,13 +68,6 @@
 }
 
 .toptable {
-  margin: auto;
-  display: flex;
-  flex-grow: 4;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
   background: url(../../../public/Images/CoinBackGround.webp);
   background-position: center;
   background-repeat: no-repeat;
@@ -83,20 +76,20 @@
   filter: grayscale(100%);
 }
 
-.toptable_childL {
-  flex: 1 1 max-content;
-  justify-content: left;
-  margin: -4rem 0 0 1rem;
-}
+// .toptable_childL {
+//   flex: 1 1 max-content;
+//   justify-content: left;
+//   margin: -4rem 0 0 1rem;
+// }
 
-.toptable_childM {
-  flex: 1 1 max-content;
-  justify-content: center;
-}
-.toptable_childR {
-  flex: 1 1 max-content;
-  justify-content: right;
-}
+// .toptable_childM {
+//   flex: 1 1 max-content;
+//   justify-content: center;
+// }
+// .toptable_childR {
+//   flex: 1 1 max-content;
+//   justify-content: right;
+// }
 
 .dropdown {
   width: 100%;

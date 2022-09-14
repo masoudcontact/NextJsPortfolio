@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { HighlightWithinTextarea } from "react-highlight-within-textarea";
 import ReactTooltip from "react-tooltip";
-import { Card, Grid, Box, Flex } from "theme-ui";
+import { Card, Grid, Box, Flex, Text } from "theme-ui";
 import { transparentize } from "@theme-ui/color";
 import Accordion from "react-bootstrap/Accordion";
 import { useDropzone } from "react-dropzone";
@@ -296,16 +296,24 @@ const RegexTest = () => {
           variant: "layout.root",
         }}
       >
-        <Grid columns={[2, "2fr 1fr"]} gap={2}>
+        <Grid columns={[1, 1, "2fr 1fr"]} gap={2}>
           <Box>
             <h1>Regex Test</h1>
-            <h4>
+            <Text
+              sx={{
+                fontSize: [0, 1],
+                fontWeight: "bold",
+                display: "block",
+                whiteSpace: "pre-line",
+                wordBreak: "break-word",
+              }}
+            >
               A regex test is a tool that lets you test on a regular expression,
               which is a pattern you type into a text field. It&apos;s used to
               check for a specific pattern in the text. Regular expressions are
               a ubiquitous part of programming languages.Learn how to use
               regular expressions to make your everyday life easier.
-            </h4>
+            </Text>
           </Box>
         </Grid>
 
@@ -397,9 +405,12 @@ const RegexTest = () => {
         <hr />
 
         <Grid
+          columns={[1, 1, "1fr 2fr"]}
           gap={2}
-          columns={[2, "1fr 2fr"]}
-          sx={{ alignContent: "flex-start" }}
+          sx={{
+            maxHeight: ["100%", "100%", "22rem"],
+            alignContent: "flex-start",
+          }}
         >
           <Box bg="primary">
             <div>
@@ -477,7 +488,14 @@ const RegexTest = () => {
               </Accordion>
             </div>
           </Box>
-          <Flex sx={{ flexDirection: "column" }}>
+          <Flex
+            sx={{
+              flexDirection: "column",
+              alignContent: "center",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <div className="tableContainerdragndrop">
               <div {...getRootProps({ style })}>
                 <input {...getInputProps()} />

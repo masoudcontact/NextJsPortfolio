@@ -2,9 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Head from "next/head";
 import { Card, Grid, Box, Flex, Textarea } from "theme-ui";
 import axios from "axios";
-import pdficon from "../public/Images/PDF.png";
-import Gform from "../public/Images/Gform.png";
-import Skills from "../lib/Skill/Skill";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { transparentize } from "@theme-ui/color";
@@ -120,7 +117,7 @@ const About = () => {
           }}
         >
           <Grid
-            columns={[2, "2fr 2fr"]}
+            columns={[1, "2fr 2fr"]}
             gap={2}
             as="form"
             onSubmit={searchListHandler}
@@ -129,7 +126,7 @@ const About = () => {
               gap: "1rem",
             }}
           >
-            <Box>
+            <Box sx={{ maxWidth: "100%" }}>
               <Textarea
                 name="SearchInput"
                 ref={textRef}
@@ -137,6 +134,7 @@ const About = () => {
                 rows={10}
                 placeholder="Search items"
                 onChange={searchListHandler}
+                sx={{ maxWidth: "inherit" }}
                 onKeyPress={(e) => {
                   e.key === "Enter" && SearchHandler();
                 }}

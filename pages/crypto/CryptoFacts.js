@@ -11,11 +11,7 @@ export const getServerSideProps = async () => {
 };
 
 const CryptoFacts = ({ coins }) => {
-  return (
-    <div>
-      <Facts coins={coins} />
-    </div>
-  );
+  return <Facts coins={coins} />;
 };
 
 export default CryptoFacts;

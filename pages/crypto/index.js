@@ -4,6 +4,7 @@ import PieChart from "../../Components/Chart/PieChart";
 import UseCoins from "../../lib/useCoins";
 import { Spinner } from "theme-ui";
 import { useState, useEffect, Fragment } from "react";
+import { Flex } from "theme-ui";
 
 export const getStaticProps = async () => {
   const featuredCoins = await UseCoins();
@@ -41,7 +42,9 @@ const GetCoins = ({ coins }) => {
     );
   return (
     <Fragment>
-      <PieChart />
+
+        <PieChart />
+
       <Coins coins={AllCoins} />
     </Fragment>
   );
