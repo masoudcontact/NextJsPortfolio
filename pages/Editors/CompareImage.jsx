@@ -1,15 +1,14 @@
 import React, { useEffect, useState, useMemo } from "react";
-// import "react-datepicker/dist/react-datepicker.css";
 import Head from "next/head";
 import MaxImage from "next/image";
-import { Card, Grid, Box } from "theme-ui";
+import { Card, Grid, Flex, Box, Text } from "theme-ui";
 import ReactCompareImage from "react-compare-image";
 import { useDropzone } from "react-dropzone";
 import Resizer from "react-image-file-resizer";
 import { Form, Spinner } from "react-bootstrap";
 import { motion } from "framer-motion";
-import backgroundImage from "../../public/Images/documents.webp";
-import ButtonMn from "../../lib/Button/ButtonMn";
+// import backgroundImage from "../../public/Images/documents.webp";
+import { ButtonMnLong } from "../../lib/Button/ButtonMn";
 
 const baseStyle = {
   flex: 1,
@@ -39,27 +38,8 @@ const rejectStyle = {
   borderColor: "#ff1744",
 };
 
-// const formatArry = [
-//   ".jpg",
-//   ".jpeg",
-//   ".png",
-//   ".gif",
-//   ".bmp",
-//   ".svg",
-//   ".tiff",
-//   ".tif",
-//   ".webp",
-//   ".ico",
-//   ".raw",
-//   ".psd",
-//   ".ai",
-//   ".eps",
-//   ".pdf",
-//   ".raw",
-//   ".arw",
-// ];
-
 const CompareImage = () => {
+  const backgroundImage = "https://picsum.photos/200/300";
   const [File1, setFile1] = useState("");
   const [File2, setFile2] = useState("");
   const [errorDataFile1, setErrorDataFile1] = useState("");
@@ -68,7 +48,6 @@ const CompareImage = () => {
   const [aspectRatio, setaspectRatio] = useState("wider");
   const [File1path, setFile1path] = useState("");
   const [File2path, setFile2path] = useState("");
-  ///resizer config
   const [Loading, setLoading] = useState(false);
   const [ExportbtnEnable, setExportbtnEnable] = useState(true);
   const [ConverttbtnEnable, setConvertbtnEnable] = useState(true);
@@ -256,8 +235,8 @@ const CompareImage = () => {
     maxWidth,
     maxHeight,
     ExportbtnEnable,
-    fileChangeHandler,
-    File1path,
+    //   fileChangeHandler,
+    //   File1path,
   ]);
 
   ////////////////////////////test download//////////////////////////////
@@ -266,7 +245,8 @@ const CompareImage = () => {
     const lastDot = File1path.path.lastIndexOf(".");
     const fileName = File1path.path.substring(0, lastDot);
     const img = new Image();
-    img.crossOrigin = "anonymous"; // This tells the browser to request cross-origin access when trying to download the image data.
+    img.crossOrigin = "anonymous";
+    // This tells the browser to request cross-origin access when trying to download the image data.
     // ref: https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image#Implementing_the_save_feature
     img.src = src;
     img.onload = () => {
@@ -325,11 +305,19 @@ const CompareImage = () => {
         <Grid columns={[2, "2fr 1fr"]} gap={2}>
           <Box>
             <h1>Image Compare & Convert</h1>
-            <h4>
+            <Text
+              sx={{
+                fontSize: [0, 1],
+                fontWeight: "bold",
+                display: "block",
+                whiteSpace: "pre-line",
+                wordBreak: "break-word",
+              }}
+            >
               Open and compare two images and find the best match. Convert
               images and resize them in webp , jpg , png format with this handy
               online tool.
-            </h4>
+            </Text>
           </Box>
           <Box></Box>
         </Grid>
@@ -346,52 +334,51 @@ const CompareImage = () => {
           <MaxImage
             src={backgroundImage}
             alt="Latest Crypto Fear & Greed Index"
-            height="340"
-            width="2000"
+            height="2000"
+            width="3000"
           />
         </Card>
 
         <hr />
 
-        <Grid columns={[1, "2fr 2fr"]} gap={2}>
-          <Box>
-            <Card
+        <Grid columns={[1, 1, "2fr 2fr"]} gap={2}>
+          <Card>
+            <Flex
               sx={{
-                color: "primary",
-                minHeight: ["5rem", "5rem"],
-                display: "flex",
-                alignItems: "center",
+                flexDirection: "column",
+                alignContent: "center",
                 justifyContent: "center",
+                alignItems: "center",
+                justifyItems: "center",
               }}
             >
-              <Box
-                sx={{
-                  background: "primary",
-                  minHeight: "14rem",
-                  aspectRatio: "16/7",
-                  borderRadius: "1rem",
-                }}
+              <Grid
                 {...getRootPropsFile1({ stylefile1 })}
+                sx={{
+                  justifyContent: "space-between",
+                  alignContent: "space-between",
+                  alignItems: "space-between",
+                  justifyItems: "space-between",
+                }}
               >
                 <input {...getInputPropsFile1()} />
+                <p style={{ wordBreak: "break-word" }}>
+                  For converting or compare Drag &apos;n&apos; drop first file
+                  here , or click to select files
+                </p>
                 <Box
                   sx={{
-                    maxWidth: "90%",
-                    minWidth: "fit-content",
-                    margin: "1rem auto",
-                    color: "secondary",
+                    backgroundColor: "primary",
+                    color: "white",
+                    padding: "1rem",
+                    borderRadius: ".6rem",
+                    margin: "1rem 0",
+                    maxWidth: "80%",
+                    overflow: "hidden",
                   }}
                 >
-                  For converting or compare Drag `&apos;`n`&apos;` drop first
-                  file here
-                  <br />, or click to select files
+                  Only Images Accepted
                 </Box>
-                <div
-                  className="container"
-                  style={{ overflow: "hidden", maxWidth: "80%" }}
-                >
-                  <p>Only Images Accepted</p>
-                </div>
                 {errorDataFile1 ? (
                   errorDataFile1
                 ) : File1path ? (
@@ -421,76 +408,71 @@ const CompareImage = () => {
                     </li>
                   </ul>
                 ) : null}
-              </Box>
-            </Card>
-          </Box>
-          <Box>
-            <Card
-              sx={{
-                color: "primary",
-                minHeight: ["5rem", "5rem"],
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              {ConverttbtnEnable ? (
-                <Box
-                  sx={{
-                    background: "primary",
-                    minHeight: "14rem",
-                    aspectRatio: "16/7",
-                    borderRadius: "1rem",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      maxWidth: "90%",
-                      minWidth: "fit-content",
-                      margin: "1rem auto",
-                      color: "secondary",
-                    }}
-                  >
-                    For Comparing two Images you have to add the first image
-                    section
-                    <br />
+              </Grid>
+            </Flex>
+          </Card>
+
+          <Card>
+            {ConverttbtnEnable ? (
+              <Flex
+                sx={{
+                  flexDirection: "column",
+                  alignContent: "center",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  justifyItems: "center",
+                }}
+              >
+                <Grid>
+                  <p style={{ wordBreak: "break-word" }}>
+                    For Comparing Images you have to add the first image section
                     at the left side.
-                  </Box>
-                  <div
-                    className="container"
-                    style={{ overflow: "hidden", maxWidth: "80%" }}
-                  >
-                    <p>🚫Add first file first</p>
-                  </div>
-                </Box>
-              ) : (
-                <Box
-                  sx={{
-                    background: "primary",
-                    minHeight: "14rem",
-                    aspectRatio: "16/7",
-                    borderRadius: "1rem",
-                  }}
-                  {...getRootPropsFile2({ stylefile2 })}
-                >
-                  <input {...getInputPropsFile2()} />
+                  </p>
+
                   <Box
                     sx={{
-                      maxWidth: "90%",
-                      minWidth: "fit-content",
-                      margin: "1rem auto",
-                      color: "secondary",
+                      backgroundColor: "primary",
+                      color: "white",
+                      padding: "1rem",
+                      borderRadius: ".6rem",
+                      margin: "1rem 0",
+                      maxWidth: "80%",
+                      overflow: "hidden",
                     }}
                   >
-                    For compare Drag `&apos;`n`&apos;` drop second file here ,
-                    or click to select files
+                    🚫Add first file first
                   </Box>
-                  <div
-                    className="container"
-                    style={{ overflow: "hidden", maxWidth: "80%" }}
+                </Grid>
+              </Flex>
+            ) : (
+              <Flex
+                sx={{
+                  flexDirection: "column",
+                  alignContent: "center",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  justifyItems: "center",
+                }}
+              >
+                <Grid {...getRootPropsFile2({ stylefile2 })}>
+                  <input {...getInputPropsFile2()} />
+                  <p style={{ wordBreak: "break-word" }}>
+                    For compare Drag &apos;n&apos; drop second file here , or
+                    click to select files
+                  </p>
+                  <Box
+                    sx={{
+                      backgroundColor: "primary",
+                      color: "white",
+                      padding: "1rem",
+                      borderRadius: ".6rem",
+                      margin: "1rem 0",
+                      maxWidth: "80%",
+                      overflow: "hidden",
+                    }}
                   >
-                    <p>Only Images Accepted</p>
-                  </div>
+                    Only Images Accepted
+                  </Box>
                   {errorDataFile2 ? (
                     errorDataFile2
                   ) : File2path ? (
@@ -518,42 +500,41 @@ const CompareImage = () => {
                       </li>
                     </ul>
                   ) : null}
-                </Box>
-              )}
-            </Card>
-          </Box>
+                </Grid>
+              </Flex>
+            )}
+          </Card>
         </Grid>
 
         <Card>
           <Grid
-            gap={2}
             columns={[1, 2, 4]}
             sx={{
               paddingTop: "0",
               minHeight: "5rem",
-              display: "flex",
               alignItems: "center",
               justifyContent: "center",
               alignContent: "center",
+              justifyItems: "center",
             }}
           >
             <Box>
-              <ButtonMn onClick={() => setOrientation(!Orientation)}>
+              <ButtonMnLong onClick={() => setOrientation(!Orientation)}>
                 Orintation - {Orientation ? "Vertical" : "Horizontal"}
-              </ButtonMn>
+              </ButtonMnLong>
             </Box>
             <Box>
-              <ButtonMn
+              <ButtonMnLong
                 onClick={() =>
                   setaspectRatio(aspectRatio === "wider" ? "taller" : "wider")
                 }
               >
                 AspectRatio -
                 {aspectRatio === "wider" ? "Vertical" : "Horizontal"}
-              </ButtonMn>
+              </ButtonMnLong>
             </Box>
             <Box>
-              <ButtonMn
+              <ButtonMnLong
                 disabled={ConverttbtnEnable}
                 onClick={() => {
                   setFile2(File1);
@@ -562,10 +543,10 @@ const CompareImage = () => {
               >
                 {ConverttbtnEnable ? " 🚫 " : " ✅ "}
                 Convert Image
-              </ButtonMn>
+              </ButtonMnLong>
             </Box>
             <Box>
-              <ButtonMn
+              <ButtonMnLong
                 onClick={() => {
                   downloadImage(File2);
                 }}
@@ -573,14 +554,14 @@ const CompareImage = () => {
               >
                 {ExportbtnEnable ? " 🚫 " : " ✅ "}
                 Export Image <br />
-              </ButtonMn>
+              </ButtonMnLong>
             </Box>
           </Grid>
         </Card>
       </Card>
 
       <div className="ImageEditor">
-        <section style={{ display: "grid" }}>
+        <Grid>
           <label>Width:&nbsp;&nbsp;</label>
           <input
             value={maxWidth}
@@ -592,8 +573,8 @@ const CompareImage = () => {
               // fileChangeHandler(File1path);
             }}
           />
-        </section>
-        <section style={{ display: "grid" }}>
+        </Grid>
+        <Grid>
           <label>Height:&nbsp;</label>
           <input
             value={maxHeight}
@@ -605,8 +586,8 @@ const CompareImage = () => {
               // fileChangeHandler(File1path);
             }}
           />
-        </section>
-        <section style={{ display: "grid" }}>
+        </Grid>
+        <Grid>
           <label>Format:&nbsp;</label>
           <select
             name="compressFormat"
@@ -620,7 +601,7 @@ const CompareImage = () => {
             <option value="JPEG">jpeg</option>
             <option value="PNG">png</option>
           </select>
-        </section>
+        </Grid>
         <label>Quality:{quality}</label>
         <Form.Range
           id="quality"

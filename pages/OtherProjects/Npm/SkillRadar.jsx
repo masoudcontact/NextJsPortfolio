@@ -1,9 +1,9 @@
 import React from "react";
-import skillChart from "../../public/Images/skills-radar-chart.png";
-import npmImage from "../../public/Images/npm.png";
+import skillChart from "../../../public/Images/skills-radar-chart.png";
+import npmImage from "../../../public/Images/npm.png";
 import Image from "next/image";
 import { Card, Box, Grid } from "theme-ui";
-import { ContainerSmallLongText } from "../../lib/ContainerSmall/ContainerSmall";
+import { ContainerSmallLongText } from "../../../lib/ContainerSmall/ContainerSmall";
 
 export default function SkillRadar() {
   return (

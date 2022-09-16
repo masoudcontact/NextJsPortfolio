@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import { useColorMode, Card, Box, Grid } from "theme-ui";
+import { useColorMode, Card, Box, Grid, Text } from "theme-ui";
 import * as XLSX from "xlsx";
 import { MockDocument } from "../../lib/MockDocument";
 import InventoryCHart from "../../Components/Chart/inventoryChart";
@@ -12,7 +12,6 @@ import ReactTooltip from "react-tooltip";
 import { JsonPrettierTextarea } from "json-pretty-textarea";
 import CsvDownload from "react-json-to-csv";
 import TopPage from "../../public/Images/TopPage.png";
-import backgroundImage from "../../public/Images/documents.webp";
 import ContainerSmall from "../../lib/ContainerSmall/ContainerSmall";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
@@ -45,6 +44,7 @@ const rejectStyle = {
 };
 
 const DocumentView = () => {
+  const backgroundImage = "https://picsum.photos/200/300";
   const [colorMode, setColorMode] = useColorMode();
   const [items, setItems] = useState(MockDocument);
   const [filterValue, setFilterValue] = useState("");
@@ -290,11 +290,19 @@ const DocumentView = () => {
       >
         <Grid columns={[2, "2fr 1fr"]} gap={2}>
           <Box>
-            <h1>Documents Viewer / Converter</h1>
-            <h4>
+            <h1>Documents Viewer Converter</h1>
+            <Text
+              sx={{
+                fontSize: [0, 1],
+                fontWeight: "bold",
+                display: "block",
+                whiteSpace: "pre-line",
+                wordBreak: "break-word",
+              }}
+            >
               Open ,read and Convert any Microsoft Excel file, all formats
               supported by Microsoft Office.
-            </h4>
+            </Text>
           </Box>
           <Box></Box>
         </Grid>
@@ -311,12 +319,12 @@ const DocumentView = () => {
           <Image
             src={backgroundImage}
             alt="Latest Crypto Fear & Greed Index"
-            height="340"
-            width="2000"
+            height="2000"
+            width="3000"
           />
         </Card>
         <hr />
-        <Grid columns={[1, "2fr 2fr"]} gap={2} sx={{ minHeight: "" }}>
+        <Grid columns={[1, 1, "2fr 2fr"]} gap={2} sx={{ minHeight: "" }}>
           <Box>
             <Card
               sx={{

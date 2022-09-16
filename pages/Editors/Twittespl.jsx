@@ -7,7 +7,7 @@ import LoremMaker from "../../lib/LoremMaker";
 import ReactTooltip from "react-tooltip";
 import { motion } from "framer-motion";
 import ButtonMn, { ButtonMnColor } from "../../lib/Button/ButtonMn";
-import useImageUploader from "../../lib/useImageUploader";
+import useImageUploader from "../../lib/UseImageUploader";
 import TextareaAutosize from "react-textarea-autosize";
 
 const Twittespl = () => {
@@ -340,7 +340,7 @@ const Twittespl = () => {
             {Stweet !== null && Stweet.length
               ? Object.entries(Stweet).map(([key, tweets]) => (
                   <li
-                    key={tweets.index}
+                    key={key}
                     className="litweet"
                     style={
                       addCounter

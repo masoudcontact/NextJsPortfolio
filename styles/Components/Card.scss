@@ -230,19 +230,17 @@
   font-size: 0.8rem;
 
   @media (max-width: 50rem) {
-    .ImageEditor {
-      all: revert;
-      display: grid;
-      margin: auto;
-      max-width: 80%;
-      z-index: 999;
-      background: $progressBar-bg--color;
-      min-height: 14rem;
-      border: 10px solid $progressBar-bg--color-dark;
-      border-radius: 1rem;
-      padding: 1rem;
-      font-size: 0.8rem;
-    }
+    all: revert;
+    display: grid;
+    margin: auto;
+    max-width: 80%;
+    z-index: 999;
+    background: $progressBar-bg--color;
+    min-height: 14rem;
+    border: 10px solid $progressBar-bg--color-dark;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 0.8rem;
   }
 }
 

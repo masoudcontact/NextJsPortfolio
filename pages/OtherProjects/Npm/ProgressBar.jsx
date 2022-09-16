@@ -1,9 +1,9 @@
 import React from "react";
-import progressbar from "../../public/Images/progressbar-chart.png";
-import npmImage from "../../public/Images/npm.png";
+import progressbar from "../../../public/Images/progressbar-chart.png";
+import npmImage from "../../../public/Images/npm.png";
 import Image from "next/image";
 import { Card, Box, Grid } from "theme-ui";
-import { ContainerSmallLongText } from "../../lib/ContainerSmall/ContainerSmall";
+import { ContainerSmallLongText } from "../../../lib/ContainerSmall/ContainerSmall";
 
 export default function ProgressBar() {
   return (

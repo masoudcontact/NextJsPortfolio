@@ -65,7 +65,7 @@ const OtherProjects = () => {
     // result = result.substring(0, result.length - 1);
     setTableData(result);
   };
-  console.log(themecolor.current);
+  // console.log(themecolor.current);
 
   return (
     <motion.div

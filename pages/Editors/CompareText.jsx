@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useMemo } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import { Card, Grid, Box } from "theme-ui";
+import { Card, Grid, Flex, Box, Text } from "theme-ui";
 import ReactDiffViewer, { DiffMethod } from "react-diff-viewer";
 import { useDropzone } from "react-dropzone";
 import { motion } from "framer-motion";
-import backgroundImage from "../../public/Images/documents.webp";
 import ButtonMn from "../../lib/Button/ButtonMn";
 
 const baseStyle = {
@@ -37,6 +36,7 @@ const rejectStyle = {
 };
 
 const CompareText = () => {
+  const backgroundImage = "https://picsum.photos/200/300";
   const [File1, setFile1] = useState("");
   const [File2, setFile2] = useState("");
   const [Split, setSplit] = useState(true);
@@ -218,74 +218,97 @@ const CompareText = () => {
           variant: "layout.root",
         }}
       >
-        <Grid columns={[2, "2fr 1fr"]} gap={2}>
+        <Grid columns={[1, 1, "2fr 1fr"]} gap={2}>
           <Box>
             <h1>Text Compare</h1>
-            <h4>
+            <Text
+              sx={{
+                fontSize: [0, 1],
+                fontWeight: "bold",
+                display: "block",
+                whiteSpace: "pre-line",
+                wordBreak: "break-word",
+              }}
+            >
               Open and compare any text base file
               (.xlsx,.xlsm,.xlsb,.xls,xlw,.xlr,.csv,.json,doc,.docx,.xml) you
               can check your code file is same or not.
-            </h4>
+            </Text>
           </Box>
           <Box></Box>
         </Grid>
 
         <Card
           sx={{
-            width: "100%",
             height: "10rem",
             borderRadius: ".6rem",
             margin: "1rem 0",
             padding: 0,
+            // display: ["none", "block"],
           }}
         >
           <Image
             src={backgroundImage}
             alt="Latest Crypto Fear & Greed Index"
-            height="340"
-            width="2000"
+            height="2000"
+            width="3000"
           />
         </Card>
+
         <hr />
-        <Grid columns={[1, "2fr 2fr"]} gap={2}>
+
+        <Grid
+          columns={[1, 1, "2fr 2fr"]}
+          sx={{
+            paddingTop: "0",
+            minHeight: "5rem",
+            alignContent: "center",
+            justifyItems: "center",
+            gap: "2",
+          }}
+        >
           <Box>
-            <Card
+            <Flex
               sx={{
-                color: "primary",
-                minHeight: ["5rem", "5rem"],
-                display: "flex",
-                alignItems: "center",
+                flexDirection: "column",
+                alignContent: "center",
                 justifyContent: "center",
+                alignItems: "center",
+                justifyItems: "center",
               }}
             >
               <div {...getRootPropsFile1({ stylefile1 })}>
                 <input {...getInputPropsFile1()} />
-                <div>
+                <p style={{ wordBreak: "break-word" }}>
                   Drag &apos;n&apos; drop some files here, or click to select
                   files
-                </div>
-                <div
-                  className="container"
-                  style={{ overflow: "hidden", maxWidth: "80%" }}
+                </p>
+                <Box
+                  sx={{
+                    backgroundColor: "primary",
+                    color: "white",
+                    padding: "1rem",
+                    borderRadius: ".6rem",
+                    margin: "1rem 0",
+                    maxWidth: "80%",
+                    overflow: "hidden",
+                  }}
                 >
-                  <br />
-                  File should be in one of listed format:
-                  <br />
-                  .txt .json .JSON .js .ts
-                  <br />
-                </div>
+                  File should be in one of listed format: .txt .json .JSON .js
+                  .ts
+                </Box>
                 {errorDataFile1 ? errorDataFile1 : File1path}
               </div>
-            </Card>
+            </Flex>
           </Box>
+
           <Box>
-            <Card
+            <Flex
               sx={{
-                color: "primary",
-                minHeight: ["5rem", "5rem"],
-                display: "flex",
-                alignItems: "center",
+                flexDirection: "column",
+                alignContent: "center",
                 justifyContent: "center",
+                alignItems: "center",
               }}
             >
               <div {...getRootPropsFile2({ stylefile2 })}>
@@ -294,67 +317,65 @@ const CompareText = () => {
                   Drag &apos;n&apos; drop some files here, or click to select
                   files
                 </div>
-                <div
-                  className="container"
-                  style={{ overflow: "hidden", maxWidth: "80%" }}
+                <Box
+                  sx={{
+                    backgroundColor: "primary",
+                    color: "white",
+                    padding: "1rem",
+                    borderRadius: ".6rem",
+                    margin: "1rem 0",
+                    maxWidth: "80%",
+                    overflow: "hidden",
+                  }}
                 >
-                  <br />
-                  File should be in one of listed format:
-                  <br />
-                  .txt .json .JSON .js .ts
-                  <br />
-                </div>
+                  File should be in one of listed format: .txt .json .JSON .js
+                  .ts
+                </Box>
                 {errorDataFile2 ? errorDataFile2 : File2path}
               </div>
-            </Card>
+            </Flex>
           </Box>
         </Grid>
 
-        <Card>
-          <Grid
-            gap={2}
-            columns={[1, 3, 3]}
-            sx={{
-              paddingTop: "0",
-              minHeight: "5rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              alignContent: "center",
-            }}
-          >
-            <Box>
-              <ButtonMn onClick={() => setSplit(!Split)}>
-                {Split ? "unified" : "Split"}
-              </ButtonMn>
-            </Box>
-            <Box>
-              <ButtonMn onClick={() => setDarkthm(!Darkthm)}>
-                {Darkthm ? "Light" : "Dark"}
-              </ButtonMn>
-            </Box>
-            <Box>
-              <ButtonMn onClick={() => setLineNumbers(!LineNumbers)}>
-                {LineNumbers ? "Line #" : "No line #"}
-              </ButtonMn>
-            </Box>
-          </Grid>
-        </Card>
-
-        <Card>
+        <Grid
+          columns={[1, 1, 3]}
+          sx={{
+            paddingTop: "0",
+            minHeight: "5rem",
+            alignContent: "center",
+            justifyItems: "center",
+            gap: "2",
+          }}
+        >
           <Box>
-            <ReactDiffViewer
-              styles={newStyles}
-              oldValue={File1 || oldCode}
-              newValue={File2 || newCode}
-              splitView={Split}
-              compareMethod={DiffMethod.WORDS}
-              useDarkTheme={Darkthm}
-              hideLineNumbers={LineNumbers}
-              // renderContent={highlightSyntax}
-            />
+            <ButtonMn onClick={() => setSplit(!Split)}>
+              {Split ? "unified" : "Split"}
+            </ButtonMn>
           </Box>
-        </Card>
+          <Box>
+            <ButtonMn onClick={() => setDarkthm(!Darkthm)}>
+              {Darkthm ? "Light" : "Dark"}
+            </ButtonMn>
+          </Box>
+          <Box>
+            <ButtonMn onClick={() => setLineNumbers(!LineNumbers)}>
+              {LineNumbers ? "Line #" : "No line #"}
+            </ButtonMn>
+          </Box>
+        </Grid>
+
+        <Box sx={{ maxWidth: ["100%", "fit-content"], minWidth: "100%" }}>
+          <ReactDiffViewer
+            styles={newStyles}
+            oldValue={File1 || oldCode}
+            newValue={File2 || newCode}
+            splitView={Split}
+            compareMethod={DiffMethod.WORDS}
+            useDarkTheme={Darkthm}
+            hideLineNumbers={LineNumbers}
+            // renderContent={highlightSyntax}
+          />
+        </Box>
       </Card>
     </motion.div>
   );

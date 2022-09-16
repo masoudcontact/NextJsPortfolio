@@ -1,5 +1,5 @@
 import React from "react";
-import ExtensionImage from "../../public/Images/ChromeEXTScreenshot.png";
+import ExtensionImage from "../../../public/Images/ChromeEXTScreenshot.png";
 import Gist from "react-gist";
 import Image from "next/image";
 import { Card, Box, Grid } from "theme-ui";

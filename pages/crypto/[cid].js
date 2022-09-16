@@ -21,7 +21,7 @@ export async function getServerSideProps(context) {
 }
 
 const CoinDetails = ({ coin }) => {
-  console.log(coin);
+  // console.log(coin);
   if (!coin) {
     return (
       <div>

@@ -8,9 +8,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { transparentize } from "@theme-ui/color";
 import ButtonMn, { ButtonMnLong } from "../lib/Button/ButtonMn";
-import backgroundImage from "../public/Images/documents.webp";
 
 const About = () => {
+  const backgroundImage = "https://picsum.photos/seed/picsum/200/300";
   const initialURL =
     "https://docs.google.com/forms/d/e/1FAIpQLScVrRWGMdozZow7oF1y0aGDZQu_lLsgrtN2ZRuxkHkAUsC0HA/viewform?embedded=true";
   const [urlSrc, seturlSrc] = useState(initialURL);

@@ -10,6 +10,7 @@ import backgroundImage from "../public/Images/documents.webp";
 import searchIcon from "../public/Images/searchIcon.svg";
 
 const About = () => {
+  const backgroundImage = "https://picsum.photos/seed/picsum/200/300";
   const ApiAccesskey = "vp4ZNVWqGrGUq17lGFwU4YVv4S6Z-xlzgAzKgp993SI";
   const ApiUrl = "https://api.unsplash.com/search/photos";
   const [images, setImages] = useState("");
@@ -61,108 +62,67 @@ const About = () => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 2 }}
-    >
-      <Head>
-        <title>Masoud Naji</title>
-        <meta name="description" content="Masoud Naji Frontend developer" />
-      </Head>
+    <>
+      <hr />
 
       <Card
         sx={{
-          color: "primary",
+          minHeight: ["5rem"],
           display: "flex",
+          alignItems: "revert",
+          justifyContent: "center",
           flexDirection: "column",
-          variant: "layout.root",
+          backgroundColor: transparentize("primary", 0.45),
+          borderRadius: ".6rem",
         }}
       >
-        <Grid columns={[2, "2fr 1fr"]} gap={2}>
-          <Box>
-            <h1>Features</h1>
-            <h4>List Image Search</h4>
+        <Grid
+          columns={[1, "2fr 2fr"]}
+          gap={2}
+          as="form"
+          onSubmit={searchListHandler}
+          sx={{
+            alignItems: "center",
+            gap: "1rem",
+          }}
+        >
+          <Box sx={{ maxWidth: "100%" }}>
+            <Textarea
+              name="SearchInput"
+              ref={textRef}
+              cols={60}
+              rows={10}
+              placeholder="Search items"
+              onChange={searchListHandler}
+              sx={{ maxWidth: "inherit" }}
+              onKeyPress={(e) => {
+                e.key === "Enter" && SearchHandler();
+              }}
+            />
           </Box>
-        </Grid>
+          <Box>
+            <Flex
+              sx={{
+                alignItems: "center",
+                gap: "1rem",
+              }}
+            >
+              <ButtonMn image={searchIcon} onClick={SearchHandler}>
+                Search
+              </ButtonMn>
 
-        <Card
-          sx={{
-            width: "100%",
-            height: "10rem",
-            borderRadius: ".6rem",
-            margin: "1rem 0",
-            padding: 0,
-          }}
-        >
-          <Image
-            src={backgroundImage}
-            alt="Latest Crypto Fear & Greed Index"
-            height="340"
-            width="2000"
-          />
-        </Card>
-        <hr />
-
-        <Card
-          sx={{
-            minHeight: ["5rem"],
-            display: "flex",
-            alignItems: "revert",
-            justifyContent: "center",
-            flexDirection: "column",
-            backgroundColor: transparentize("primary", 0.45),
-            borderRadius: ".6rem",
-          }}
-        >
-          <Grid
-            columns={[1, "2fr 2fr"]}
-            gap={2}
-            as="form"
-            onSubmit={searchListHandler}
-            sx={{
-              alignItems: "center",
-              gap: "1rem",
-            }}
-          >
-            <Box sx={{ maxWidth: "100%" }}>
-              <Textarea
-                name="SearchInput"
-                ref={textRef}
-                cols={60}
-                rows={10}
-                placeholder="Search items"
-                onChange={searchListHandler}
-                sx={{ maxWidth: "inherit" }}
-                onKeyPress={(e) => {
-                  e.key === "Enter" && SearchHandler();
-                }}
-              />
-            </Box>
-            <Box>
-              <Flex
-                sx={{
-                  alignItems: "center",
-                  gap: "1rem",
+              <ButtonMn
+                onClick={() => {
+                  (textRef.current.value = "") && setSearchList("");
                 }}
               >
-                <ButtonMn image={searchIcon} onClick={SearchHandler}>
-                  Search
-                </ButtonMn>
-
-                <ButtonMn
-                  onClick={() => {
-                    (textRef.current.value = "") && setSearchList("");
-                  }}
-                >
-                  Clear List
-                </ButtonMn>
-              </Flex>
-            </Box>
-          </Grid>
-        </Card>
+                Clear List
+              </ButtonMn>
+            </Flex>
+          </Box>
+        </Grid>
       </Card>
+
       <hr />
       <Card
         sx={{
@@ -177,9 +137,7 @@ const About = () => {
       >
         <Box sx={{ columnCount: "3" }}>{!loading && ImageCollection()}</Box>
       </Card>
-
-      <hr />
-    </motion.div>
+    </>
   );
 };
 

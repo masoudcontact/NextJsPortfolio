@@ -1,9 +1,9 @@
 import React from "react";
-import jsonsample from "../../public/Images/jsonpretty2.png";
-import npmImage from "../../public/Images/npm.png";
+import jsonsample from "../../../public/Images/jsonpretty2.png";
+import npmImage from "../../../public/Images/npm.png";
 import Image from "next/image";
 import { Card, Box, Grid } from "theme-ui";
-import { ContainerSmallLongText } from "../../lib/ContainerSmall/ContainerSmall";
+import { ContainerSmallLongText } from "../../../lib/ContainerSmall/ContainerSmall";
 
 export default function JsonPretty() {
   return (

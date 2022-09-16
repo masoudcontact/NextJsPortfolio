@@ -20,7 +20,7 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="features">Features</Nav.Link>
+            {/* <Nav.Link href="/features">Features</Nav.Link> */}
 
             <NavDropdown title="About" id="collasible-nav-dropdown">
               <Flex
@@ -194,7 +194,15 @@ const Header = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
+            <Nav.Link href="#">
+              <a
+                href="https://www.masoudnaji.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                React v
+              </a>
+            </Nav.Link>
 
             <Button
               variant={Dark ? "outline-secondary" : "outline-danger"}

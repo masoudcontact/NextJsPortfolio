@@ -13,7 +13,12 @@ module.exports = {
     includePaths: [path.join(__dirname, "styles")],
   },
   images: {
-    domains: ["assets.coingecko.com", "alternative.me", "images.unsplash.com"],
+    domains: [
+      "assets.coingecko.com",
+      "alternative.me",
+      "images.unsplash.com",
+      "picsum.photos",
+    ],
   },
   sassOptions: {
     importer: jsonImporter(),

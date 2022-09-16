@@ -8,8 +8,6 @@ import { transparentize } from "@theme-ui/color";
 import Accordion from "react-bootstrap/Accordion";
 import { useDropzone } from "react-dropzone";
 import { motion } from "framer-motion";
-import backgroundImage from "../../public/Images/documents.webp";
-
 import CommonToken from "./Accordions/CommonToken";
 import GeneralToken from "./Accordions/GeneralToken";
 import MetaSeq from "./Accordions/MetaSeq";
@@ -52,6 +50,8 @@ const rejectStyle = {
 /////////////////regex test /////////////////////////////
 
 const RegexTest = () => {
+  const backgroundImage = "https://picsum.photos/200/300";
+
   const [value, setValue] = useState(
     `Lorem ipsum dolor, sit amet consectetur adipisicing elit.1 2 3 4 5 6 7 8 9 10 Ipsa goose repellendus itaque reiciendis ab explicabo quasi, dicta temporibus quod tempore quis saepe fugit ut autem dolorem eos incidunt voluptates et veritatis fugiat at. Voluptatem nulla, libero magni architecto tempore laudantium dolorum quam impedit placeat aliquid, et similique, quos consectetur veritatis eligendi id iure quia. Recusandae, ullam quidem vero deserunt perspiciatis eligendi voluptates corporis molestiae ab nesciunt non aperiam necessitatibus nemo nam repellendus provident, fugit iure nobis obcaecati cupiditate quos, libero sequi autem! Dolorem adipisci nesciunt repellat, libero quam cumque aliquid expedita, ipsum illo, numquam autem quos voluptates accusantium? Ex ut fugit, mollitia libero hic optio veniam saepe. Ipsam reprehenderit placeat perspiciatis numquam consequatur? Quaerat deserunt quos aut velit iusto a, doloremque veritatis id tempore. Obcaecati nobis accusamus unde, vel necessitatibus ipsa aspernatur iure ducimus maxime labore a repellendus perferendis ullam. Dignissimos rerum aliquid similique unde, rem numquam tempore minus est sed iste provident quasi sit, veritatis sapiente a repudiandae explicabo consequuntur autem asperiores debitis molestiae? Quam in, aliquam a sapiente ducimus odit? Nemo facilis voluptates officia vel animi alias! Quaerat vel architecto voluptas obcaecati, exercitationem, laborum, minus earum consequatur`
   );
@@ -329,8 +329,8 @@ const RegexTest = () => {
           <Image
             src={backgroundImage}
             alt="Latest Crypto Fear & Greed Index"
-            height="340"
-            width="2000"
+            height="2000"
+            width="3000"
           />
         </Card>
         <hr />
@@ -496,7 +496,7 @@ const RegexTest = () => {
               alignItems: "center",
             }}
           >
-            <div className="tableContainerdragndrop">
+            <div>
               <div {...getRootProps({ style })}>
                 <input {...getInputProps()} />
                 <p>

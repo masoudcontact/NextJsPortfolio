@@ -3,13 +3,14 @@ import { motion } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
 import { Card, Box, Grid } from "theme-ui";
-import ChromeExtension from "./Extensions/ChromeExtension";
-import JsonPretty from "./Npm/JsonPretty";
-import SkillRadar from "./Npm/SkillRadar";
-import ProgressBar from "./Npm/ProgressBar";
-import backgroundImage from "../public/Images/documents.webp";
+import ChromeExtension from "./OtherProjects/Extensions/ChromeExtension";
+import JsonPretty from "./OtherProjects/Npm/JsonPretty";
+import SkillRadar from "./OtherProjects/Npm/SkillRadar";
+import ProgressBar from "./OtherProjects/Npm/ProgressBar";
+import ListImage from "./OtherProjects/ListImage";
 
 const OtherProjects = () => {
+  const backgroundImage = "https://picsum.photos/seed/picsum/200/300";
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -75,6 +76,9 @@ const OtherProjects = () => {
           </Box>
           <Box>
             <ProgressBar />
+          </Box>
+          <Box>
+            <ListImage />
           </Box>
         </Grid>
       </Card>
