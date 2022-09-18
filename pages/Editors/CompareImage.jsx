@@ -7,8 +7,8 @@ import { useDropzone } from "react-dropzone";
 import Resizer from "react-image-file-resizer";
 import { Form, Spinner } from "react-bootstrap";
 import { motion } from "framer-motion";
-// import backgroundImage from "../../public/Images/documents.webp";
 import { ButtonMnLong } from "../../lib/Button/ButtonMn";
+import BackGroundImage from "../../lib/BackGroundImage";
 
 const baseStyle = {
   flex: 1,
@@ -39,7 +39,6 @@ const rejectStyle = {
 };
 
 const CompareImage = () => {
-  const backgroundImage = "https://picsum.photos/200/300";
   const [File1, setFile1] = useState("");
   const [File2, setFile2] = useState("");
   const [errorDataFile1, setErrorDataFile1] = useState("");
@@ -322,22 +321,7 @@ const CompareImage = () => {
           <Box></Box>
         </Grid>
 
-        <Card
-          sx={{
-            width: "100%",
-            height: "10rem",
-            borderRadius: ".6rem",
-            margin: "1rem 0",
-            padding: 0,
-          }}
-        >
-          <MaxImage
-            src={backgroundImage}
-            alt="Latest Crypto Fear & Greed Index"
-            height="2000"
-            width="3000"
-          />
-        </Card>
+        <BackGroundImage />
 
         <hr />
 

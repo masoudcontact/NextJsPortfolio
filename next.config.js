@@ -18,6 +18,7 @@ module.exports = {
       "alternative.me",
       "images.unsplash.com",
       "picsum.photos",
+      "random.imagecdn.app",
     ],
   },
   sassOptions: {

@@ -18,6 +18,7 @@ import Characters from "./Accordions/Characters";
 import FlagsModifiers from "./Accordions/FlagModifiers";
 import Substitutions from "./Accordions/Substitutions";
 import AllRegexes from "./Accordions/AllRegexes";
+import BackGroundImage from "../../lib/BackGroundImage";
 
 const baseStyle = {
   flex: 1,
@@ -317,22 +318,7 @@ const RegexTest = () => {
           </Box>
         </Grid>
 
-        <Card
-          sx={{
-            width: "100%",
-            height: "10rem",
-            borderRadius: ".6rem",
-            margin: "1rem 0",
-            padding: 0,
-          }}
-        >
-          <Image
-            src={backgroundImage}
-            alt="Latest Crypto Fear & Greed Index"
-            height="2000"
-            width="3000"
-          />
-        </Card>
+        <BackGroundImage />
         <hr />
         <Grid columns={[1]} gap={2}>
           <Card

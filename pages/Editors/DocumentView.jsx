@@ -14,6 +14,7 @@ import CsvDownload from "react-json-to-csv";
 import TopPage from "../../public/Images/TopPage.png";
 import ContainerSmall from "../../lib/ContainerSmall/ContainerSmall";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import BackGroundImage from "../../lib/BackGroundImage";
 
 const baseStyle = {
   flex: 1,
@@ -307,22 +308,7 @@ const DocumentView = () => {
           <Box></Box>
         </Grid>
 
-        <Card
-          style={{
-            width: "100%",
-            height: "10rem",
-            borderRadius: ".6rem",
-            margin: "1rem 0",
-            padding: 0,
-          }}
-        >
-          <Image
-            src={backgroundImage}
-            alt="Latest Crypto Fear & Greed Index"
-            height="2000"
-            width="3000"
-          />
-        </Card>
+        <BackGroundImage />
         <hr />
         <Grid columns={[1, 1, "2fr 2fr"]} gap={2} sx={{ minHeight: "" }}>
           <Box>

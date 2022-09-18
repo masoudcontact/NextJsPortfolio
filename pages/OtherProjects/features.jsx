@@ -1,16 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
-import Head from "next/head";
+import React, { useState, useRef } from "react";
 import { Card, Grid, Box, Flex, Textarea } from "theme-ui";
 import axios from "axios";
-import { motion } from "framer-motion";
-import Image from "next/image";
 import { transparentize } from "@theme-ui/color";
-import ButtonMn, { ButtonMnLong } from "../lib/Button/ButtonMn";
-import backgroundImage from "../public/Images/documents.webp";
-import searchIcon from "../public/Images/searchIcon.svg";
+import ButtonMn from "../../lib/Button/ButtonMn";
+import searchIcon from "../../public/Images/searchIcon.svg";
 
 const About = () => {
-  const backgroundImage = "https://picsum.photos/seed/picsum/200/300";
   const ApiAccesskey = "vp4ZNVWqGrGUq17lGFwU4YVv4S6Z-xlzgAzKgp993SI";
   const ApiUrl = "https://api.unsplash.com/search/photos";
   const [images, setImages] = useState("");
@@ -64,7 +59,6 @@ const About = () => {
   return (
     <>
       <hr />
-
       <Card
         sx={{
           minHeight: ["5rem"],
@@ -122,7 +116,6 @@ const About = () => {
           </Box>
         </Grid>
       </Card>
-
       <hr />
       <Card
         sx={{

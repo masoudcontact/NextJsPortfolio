@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import { useState } from "react";
 import Link from "next/link";
-import { useColorMode, Grid, Box, Flex } from "theme-ui";
+import { useColorMode, Grid, Box, Flex, Text } from "theme-ui";
 import { Navbar, Nav, NavDropdown, Container, Button } from "react-bootstrap";
 import linkedin from "../../public/Images/Social/linkedin.svg";
 import Github from "../../public/Images/Social/github.svg";
@@ -27,7 +27,22 @@ const Header = () => {
                 sx={{ flexDirection: "column", alignItems: "center", gap: "2" }}
               >
                 <Link href="/About" passHref>
-                  <NavDropdown.Item>About</NavDropdown.Item>
+                  <NavDropdown.Item> About</NavDropdown.Item>
+                </Link>
+
+                <Link href="https://www.masoudnaji.com" passHref>
+                  <a
+                    href="https://www.masoudnaji.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      marginLeft: "-4",
+                      color: "text",
+                      ":hover": { color: "red" },
+                    }}
+                  >
+                    React Version
+                  </a>
                 </Link>
 
                 <a
@@ -194,15 +209,8 @@ const Header = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#">
-              <a
-                href="https://www.masoudnaji.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                React v
-              </a>
-            </Nav.Link>
+            <Nav.Link href="/Auth/AuthForm/AuthForm">Login</Nav.Link>
+            <Nav.Link href="#">Profile</Nav.Link>
 
             <Button
               variant={Dark ? "outline-secondary" : "outline-danger"}

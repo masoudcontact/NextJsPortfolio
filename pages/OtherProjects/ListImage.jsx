@@ -1,10 +1,7 @@
 import React from "react";
-import jsonsample from "../../public/Images/jsonpretty2.png";
-import npmImage from "../../public/Images/npm.png";
-import Image from "next/image";
 import { Card, Box, Grid } from "theme-ui";
 import { ContainerSmallLongText } from "../../lib/ContainerSmall/ContainerSmall";
-import SearchList from "../features";
+import SearchList from "./features";
 
 export default function JsonPretty() {
   return (
@@ -13,7 +10,8 @@ export default function JsonPretty() {
         <Box>
           <h3>Search Image Continuously</h3>
           <ContainerSmallLongText>
-            Search For Image or copy a list of images and paste it in the search
+            Search For couple of Images or copy a list of search item and paste
+            it in the search
           </ContainerSmallLongText>
           <SearchList />
         </Box>

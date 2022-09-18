@@ -6,6 +6,7 @@ import ReactDiffViewer, { DiffMethod } from "react-diff-viewer";
 import { useDropzone } from "react-dropzone";
 import { motion } from "framer-motion";
 import ButtonMn from "../../lib/Button/ButtonMn";
+import BackGroundImage from "../../lib/BackGroundImage";
 
 const baseStyle = {
   flex: 1,
@@ -238,22 +239,7 @@ const CompareText = () => {
           <Box></Box>
         </Grid>
 
-        <Card
-          sx={{
-            height: "10rem",
-            borderRadius: ".6rem",
-            margin: "1rem 0",
-            padding: 0,
-            // display: ["none", "block"],
-          }}
-        >
-          <Image
-            src={backgroundImage}
-            alt="Latest Crypto Fear & Greed Index"
-            height="2000"
-            width="3000"
-          />
-        </Card>
+        <BackGroundImage />
 
         <hr />
 
