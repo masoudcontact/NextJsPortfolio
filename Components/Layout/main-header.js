@@ -209,8 +209,8 @@ const Header = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="/Auth/AuthForm/AuthForm">Login</Nav.Link>
-            <Nav.Link href="#">Profile</Nav.Link>
+            {/* <Nav.Link href="/Auth/AuthForm/AuthForm">Login</Nav.Link>
+            <Nav.Link href="#">Profile</Nav.Link> */}
 
             <Button
               variant={Dark ? "outline-secondary" : "outline-danger"}

@@ -8,6 +8,8 @@ import JsonPretty from "./OtherProjects/Npm/JsonPretty";
 import SkillRadar from "./OtherProjects/Npm/SkillRadar";
 import ProgressBar from "./OtherProjects/Npm/ProgressBar";
 import ListImage from "./OtherProjects/ListImage";
+import GradianMaker from "../lib/GradiaentMaker/Gradient";
+import BackGroundImage from "../lib/BackGroundImage";
 
 const OtherProjects = () => {
   const backgroundImage = "https://picsum.photos/seed/picsum/200/300";
@@ -46,23 +48,7 @@ const OtherProjects = () => {
           </Box>
           <Box></Box>
         </Grid>
-
-        <Card
-          style={{
-            width: "100%",
-            height: "10rem",
-            borderRadius: ".6rem",
-            margin: "1rem 0",
-            padding: 0,
-          }}
-        >
-          <Image
-            src={backgroundImage}
-            alt="Latest Crypto Fear & Greed Index"
-            height="340"
-            width="2000"
-          />
-        </Card>
+        <BackGroundImage />
         <hr />
         <Grid columns={[1, "1fr"]} gap={2} sx={{ minHeight: "" }}>
           <Box>

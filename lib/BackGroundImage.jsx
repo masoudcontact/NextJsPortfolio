@@ -1,4 +1,7 @@
-import { Card } from "theme-ui";
+import { before } from "lodash";
+import { Box, Card } from "theme-ui";
+import GradientMaker from "./GradiaentMaker/Gradient";
+
 const BackGroundImage = () => {
   return (
     <Card
@@ -8,6 +11,7 @@ const BackGroundImage = () => {
         borderRadius: ".6rem",
         margin: "1rem 0",
         padding: 0,
+        background: GradientMaker(),
       }}
     >
       <img
