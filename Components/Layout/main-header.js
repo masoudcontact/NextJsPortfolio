@@ -31,18 +31,19 @@ const Header = () => {
                 </Link>
 
                 <Link href="https://www.masoudnaji.com" passHref>
-                  <a
-                    href="https://www.masoudnaji.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{
-                      marginLeft: "-4",
-                      color: "text",
-                      ":hover": { color: "red" },
-                    }}
-                  >
-                    React Version
-                  </a>
+                  <NavDropdown.Item>
+                    <a
+                      href="https://www.masoudnaji.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{
+                        color: "text",
+                        ":hover": { color: "red" },
+                      }}
+                    >
+                      React Version
+                    </a>
+                  </NavDropdown.Item>
                 </Link>
 
                 <a
