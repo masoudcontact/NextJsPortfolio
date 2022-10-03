@@ -77,6 +77,13 @@
   margin-left: -50%;
   width: 60px !important;
   height: 60px;
+
+  @media screen and (max-width: $tablet-screen) {
+    top: 0;
+    border: 0;
+    background: transparent;
+    width: 50px !important;
+  }
 }
 
 .mycard meter {

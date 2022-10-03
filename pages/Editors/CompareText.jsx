@@ -324,26 +324,30 @@ const CompareText = () => {
         </Grid>
 
         <Grid
-          columns={[1, 1, 3]}
+          // columns={[2, 3, 3]}
           sx={{
             paddingTop: "0",
             minHeight: "5rem",
             alignContent: "center",
             justifyItems: "center",
             gap: "2",
+            gridTemplateAreas: [
+              " 'one two' 'three three' ",
+              " 'one two three' ",
+            ],
           }}
         >
-          <Box>
+          <Box sx={{ gridArea: "one" }}>
             <ButtonMn onClick={() => setSplit(!Split)}>
               {Split ? "unified" : "Split"}
             </ButtonMn>
           </Box>
-          <Box>
+          <Box sx={{ gridArea: "two" }}>
             <ButtonMn onClick={() => setDarkthm(!Darkthm)}>
               {Darkthm ? "Light" : "Dark"}
             </ButtonMn>
           </Box>
-          <Box>
+          <Box sx={{ gridArea: "three" }}>
             <ButtonMn onClick={() => setLineNumbers(!LineNumbers)}>
               {LineNumbers ? "Line #" : "No line #"}
             </ButtonMn>

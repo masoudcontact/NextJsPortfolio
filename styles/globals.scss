@@ -47,7 +47,7 @@ a {
     min-width: 90vw;
   }
 
-  @media screen and (min-width: 45rem) {
+  @media screen and (min-width: $tablet-screen) {
     grid-template-columns: 2fr 1fr;
     padding: 1rem;
     > ol {
@@ -63,7 +63,7 @@ a {
   bottom: 0px;
 }
 
-@media screen and (min-width: 45rem) {
+@media screen and (min-width: $tablet-screen) {
   html {
     font-size: 1.2rem;
   }
@@ -89,6 +89,9 @@ a {
   top: 3rem;
   left: 50%;
   transform: translate(-50%);
+  @media screen and (max-width: $tablet-screen + 1) {
+    display: none;
+  }
 }
 
 .LineSVG {

@@ -104,7 +104,7 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
           }}
         >
           <Grid
-            columns={[1, 1, "1fr 1fr"]}
+            columns={[1, 1, 1, "1fr 1fr"]}
             sx={{
               justifyItems: ["normal", "center"],
               alignItems: "center",
@@ -122,7 +122,9 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
                 borderRadius: "1rem",
                 clipPath: [
                   "polygon(0% 0%, 100% 0, 100% 85%, 50% 100%, 0 85%)",
-                  "polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%)",
+                  "polygon(0% 0%, 100% 0, 100% 85%, 50% 100%, 0 85%)",
+                  "polygon(0% 0%, 100% 0, 100% 85%, 50% 100%, 0 85%)",
+                  // "polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%)",
                   "polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%)",
                 ],
               }}

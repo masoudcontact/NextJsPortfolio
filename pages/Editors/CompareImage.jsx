@@ -7,7 +7,7 @@ import { useDropzone } from "react-dropzone";
 import Resizer from "react-image-file-resizer";
 import { Form, Spinner } from "react-bootstrap";
 import { motion } from "framer-motion";
-import { ButtonMnLong } from "../../lib/Button/ButtonMn";
+import ButtonMn, { ButtonMnLong } from "../../lib/Button/ButtonMn";
 import BackGroundImage from "../../lib/BackGroundImage";
 
 const baseStyle = {
@@ -492,7 +492,7 @@ const CompareImage = () => {
 
         <Card>
           <Grid
-            columns={[1, 2, 4]}
+            columns={[2, 2, 4]}
             sx={{
               paddingTop: "0",
               minHeight: "5rem",
@@ -503,22 +503,22 @@ const CompareImage = () => {
             }}
           >
             <Box>
-              <ButtonMnLong onClick={() => setOrientation(!Orientation)}>
+              <ButtonMn onClick={() => setOrientation(!Orientation)}>
                 Orintation - {Orientation ? "Vertical" : "Horizontal"}
-              </ButtonMnLong>
+              </ButtonMn>
             </Box>
             <Box>
-              <ButtonMnLong
+              <ButtonMn
                 onClick={() =>
                   setaspectRatio(aspectRatio === "wider" ? "taller" : "wider")
                 }
               >
                 AspectRatio -
                 {aspectRatio === "wider" ? "Vertical" : "Horizontal"}
-              </ButtonMnLong>
+              </ButtonMn>
             </Box>
             <Box>
-              <ButtonMnLong
+              <ButtonMn
                 disabled={ConverttbtnEnable}
                 onClick={() => {
                   setFile2(File1);
@@ -527,10 +527,10 @@ const CompareImage = () => {
               >
                 {ConverttbtnEnable ? " 🚫 " : " ✅ "}
                 Convert Image
-              </ButtonMnLong>
+              </ButtonMn>
             </Box>
             <Box>
-              <ButtonMnLong
+              <ButtonMn
                 onClick={() => {
                   downloadImage(File2);
                 }}
@@ -538,7 +538,7 @@ const CompareImage = () => {
               >
                 {ExportbtnEnable ? " 🚫 " : " ✅ "}
                 Export Image <br />
-              </ButtonMnLong>
+              </ButtonMn>
             </Box>
           </Grid>
         </Card>

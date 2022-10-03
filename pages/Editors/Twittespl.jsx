@@ -229,8 +229,7 @@ const Twittespl = () => {
 
         <Card>
           <Grid
-            gap={2}
-            columns={[1, 3, 5]}
+            columns={[2, 3, 3, 6]}
             sx={{
               padding: "1rem",
               minHeight: "5rem",
@@ -238,49 +237,51 @@ const Twittespl = () => {
               justifyContent: "center",
               alignContent: "center",
               justifyItems: "center",
+              gap: "1rem",
+              gridRowGap: "1rem",
             }}
           >
-            <Box>
-              <div style={{ marginTop: "10px" }}>
-                ↔️ &nbsp;{posWatermark || "24"}&nbsp;
-                <input
-                  type="range"
-                  min={1}
-                  max={100}
-                  step={1}
-                  value={posWatermark}
-                  onChange={(e) => (
-                    setposWatermark(e.target.value),
-                    localStorage.setItem(
-                      "posWatermark",
-                      JSON.stringify(e.target.value)
-                    )
-                  )}
-                  className="rangeselector"
-                  data-for="main"
-                  data-tip="Change the WaterMark Position"
-                />
-                <input
-                  type="range"
-                  min={1}
-                  max={100}
-                  step={1}
-                  value={posverWatermark}
-                  onChange={(e) => (
-                    setposverWatermark(e.target.value),
-                    localStorage.setItem(
-                      "posverWatermark",
-                      JSON.stringify(e.target.value)
-                    )
-                  )}
-                  style={{ transform: "rotate(270deg)" }}
-                  className="rangeselector"
-                  data-for="main"
-                  data-tip="Change the WaterMark Position"
-                />
-                ↕️ &nbsp;{posverWatermark || "24"}&nbsp;
-              </div>
-            </Box>
+            <div style={{ marginTop: "10px" }}>
+              ↔️ &nbsp;{posWatermark || "24"}&nbsp;
+              <input
+                type="range"
+                min={1}
+                max={100}
+                step={1}
+                value={posWatermark}
+                onChange={(e) => (
+                  setposWatermark(e.target.value),
+                  localStorage.setItem(
+                    "posWatermark",
+                    JSON.stringify(e.target.value)
+                  )
+                )}
+                className="rangeselector"
+                data-for="main"
+                data-tip="Change the WaterMark Position"
+              />
+            </div>
+            <div style={{ marginTop: "10px" }}>
+              <input
+                type="range"
+                min={1}
+                max={100}
+                step={1}
+                value={posverWatermark}
+                onChange={(e) => (
+                  setposverWatermark(e.target.value),
+                  localStorage.setItem(
+                    "posverWatermark",
+                    JSON.stringify(e.target.value)
+                  )
+                )}
+                style={{ transform: "rotate(270deg)" }}
+                className="rangeselector"
+                data-for="main"
+                data-tip="Change the WaterMark Position"
+              />
+              ↕️ &nbsp;{posverWatermark || "24"}&nbsp;
+            </div>
             <Box>
               <ButtonMn
                 onClick={(e) => {

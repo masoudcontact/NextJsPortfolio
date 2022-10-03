@@ -1,6 +1,9 @@
-
 $progressBar-bg--color: rgba(175, 175, 175, 0.6);
 $progressBar-bg--color-light: rgba(63, 63, 63, 1);
 $progressBar-bg--color-dark: rgba(0, 0, 0);
 $progressBar-bg--color-white: rgba(255, 255, 255);
 $progressBar-bg--color-shadow: rgba(63, 63, 63, 0.8);
+
+$mobile-screen: 393px;
+$tablet-screen: 767px;
+$desktop-screen: 1024px;

@@ -342,7 +342,12 @@ function Compare() {
           gap={2}
           sx={{ maxHeight: ["100%", "100%", "22rem"] }}
         >
-          <Box>
+          <Box
+            sx={{
+              marginLeft: "-2rem",
+              overflow: "scroll",
+            }}
+          >
             {foundCoins && foundCoins2 && (
               <Chart data={foundCoins} data2={foundCoins2} />
             )}
@@ -588,7 +593,7 @@ function Compare() {
           </Grid>
 
           <hr />
-          <Grid gap={2} columns={[1, 2, 2]} sx={{ mt: 20 }}>
+          <Grid columns={[1, 2, 2]} sx={{ mt: 20 }}>
             <Box className="mycard">
               <div className="mycardImage">
                 <Image src={stock} alt="stock Icon" />

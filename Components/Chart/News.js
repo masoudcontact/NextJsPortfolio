@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import React, { useContext } from "react";
 import {
   LineChart,
@@ -9,7 +10,6 @@ import {
 } from "recharts";
 
 function Chart(props) {
-
   // console.log(props.data2);
   // console.log(coinCTX.Chartdata);
   // console.log(coinCTX.Chartdata2);
@@ -23,20 +23,23 @@ function Chart(props) {
   // ];
 
   const mydata = props.data;
-  const mydata2 = props.data2
+  const mydata2 = props.data2;
 
+  console.log({ mydata });
+  console.log({ mydata2 });
 
-  console.log({mydata});
-  console.log({mydata2});
+  const newD =
+    mydata &&
+    mydata.map((mdata) => ({
+      date: new Date(mdata[0]).toLocaleDateString("en-US"),
+      price: mdata[1],
+    }));
 
-  const newD =mydata &&  mydata.map((mdata) => ({
-    date: new Date(mdata[0]).toLocaleDateString("en-US"),
-    price: mdata[1],
-  }));
-
-  const newD2 =mydata2 && mydata2.map((mdata) => ({
-    price2: mdata[1],
-  }));
+  const newD2 =
+    mydata2 &&
+    mydata2.map((mdata) => ({
+      price2: mdata[1],
+    }));
 
   for (const key in newD) {
     try {

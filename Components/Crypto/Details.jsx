@@ -130,7 +130,14 @@ const Details = ({ coin }) => {
         gap={2}
         sx={{ maxHeight: ["100%", "100%", "22rem"] }}
       >
-        <Box>{chartData && <Chart data={chartData} data2={[]} />}</Box>
+        <Box
+          sx={{
+            marginLeft: "-2rem",
+            overflow: "scroll",
+          }}
+        >
+          {chartData && <Chart data={chartData} data2={[]} />}
+        </Box>
 
         <Box>
           <select

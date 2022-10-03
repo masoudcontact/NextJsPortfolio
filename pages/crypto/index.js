@@ -42,7 +42,7 @@ const GetCoins = ({ coins }) => {
   return (
     <Fragment>
       <PieChart />
-
+      test
       <Coins coins={AllCoins} />
     </Fragment>
   );

@@ -95,9 +95,10 @@ const About = () => {
             />
           </Box>
           <Box>
-            <Flex
+            <Grid
               sx={{
                 alignItems: "center",
+                justifyContent: ["center", "start"],
                 gap: "1rem",
               }}
             >
@@ -112,7 +113,7 @@ const About = () => {
               >
                 Clear List
               </ButtonMn>
-            </Flex>
+            </Grid>
           </Box>
         </Grid>
       </Card>
