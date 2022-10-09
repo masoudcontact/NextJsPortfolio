@@ -133,7 +133,7 @@ const Details = ({ coin }) => {
         <Box
           sx={{
             marginLeft: "-2rem",
-            overflow: "scroll",
+            overflow: "auto",
           }}
         >
           {chartData && <Chart data={chartData} data2={[]} />}

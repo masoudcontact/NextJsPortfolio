@@ -345,7 +345,7 @@ function Compare() {
           <Box
             sx={{
               marginLeft: "-2rem",
-              overflow: "scroll",
+              overflow: "auto",
             }}
           >
             {foundCoins && foundCoins2 && (
