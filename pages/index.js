@@ -88,7 +88,7 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
 
         <Box
           sx={{
-            minWidth: "120vw",
+            minWidth: ["100%", "100%", "100%", "120vw"],
             position: "relative",
             left: "50%",
             marginLeft: "-50vw",
@@ -114,6 +114,7 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
           >
             <div
               sx={{
+                display: ["none", "none", "none", "block"],
                 background: "secondary",
                 color: darken("primary", 0.5),
                 width: ["100vw", "40%"],
