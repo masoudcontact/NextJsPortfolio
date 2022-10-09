@@ -187,7 +187,7 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
                 skillPercentage="skillPercentage"
                 skillName="skillName"
                 label="Skills"
-                backgroundColor="rgba(60, 99, 232, 0.2)"
+                backgroundColor="rgba(348, 0, 0, .4)"
                 borderColor="rgba(43, 43, 43, 1)"
                 borderWidth="2"
                 pointBackgroundColor="transparent"
@@ -197,7 +197,7 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
                 borderDash={[2, 5]}
                 borderDashOffset="8"
                 angleLines="rgba(247, 98, 98,1);"
-                grid="rgba(255,255,255,0.6)"
+                grid="rgba(255,255,255,.9)"
                 pointLabels="white"
                 ticks="red"
                 ShowLegend={false}
