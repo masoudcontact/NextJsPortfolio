@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import ButtonMn, { ButtonMnColor } from "../../lib/Button/ButtonMn";
 import useImageUploader from "../../lib/UseImageUploader";
 import TextareaAutosize from "react-textarea-autosize";
+import GradientMaker from "../../lib/GradiaentMaker/Gradient";
 
 const Twittespl = () => {
   const [tweet, setTweet] = useState("Test Tweet");
@@ -125,7 +126,7 @@ const Twittespl = () => {
 
         <Card
           sx={{
-            backgroundImage: `url('${File}')`,
+            background: File ? `url('${File}')` : GradientMaker(),
             width: "100%",
             height: "10rem",
             borderRadius: ".6rem",

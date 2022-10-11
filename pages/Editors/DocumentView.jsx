@@ -15,6 +15,7 @@ import TopPage from "../../public/Images/TopPage.png";
 import ContainerSmall from "../../lib/ContainerSmall/ContainerSmall";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import BackGroundImage from "../../lib/BackGroundImage";
+import { Document, Page } from "react-pdf";
 
 const baseStyle = {
   flex: 1,
@@ -43,7 +44,6 @@ const acceptStyle = {
 const rejectStyle = {
   borderColor: "#ff1744",
 };
-
 const DocumentView = () => {
   const backgroundImage = "https://picsum.photos/200/300";
   const [colorMode, setColorMode] = useColorMode();
@@ -56,6 +56,8 @@ const DocumentView = () => {
   const [TableDetail, setTableDetail] = useState(false);
   const [errorData, setErrorData] = useState("");
   const [isComplete, setIsComplete] = useState(false);
+  const [errMessage, setErrMessage] = useState("");
+
   const { scrollYProgress } = useScroll();
   const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
   const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 });
@@ -68,7 +70,6 @@ const DocumentView = () => {
   }, [items]);
 
   /////////////////////////drag and drop file upload/////////////////////////////
-
   const onDrop = useCallback((acceptedFiles) => {
     readExcel(acceptedFiles[0]);
   }, []);
@@ -103,6 +104,7 @@ const DocumentView = () => {
     // console.dir(fileName);
     // Reading JSON from input
     if (ext === "json") {
+      setErrMessage("");
       const fileReader = new FileReader();
       fileReader.readAsText(file, "UTF-8");
       fileReader.onload = (e) => {
@@ -121,7 +123,42 @@ const DocumentView = () => {
           setErrorData("**Not valid JSON file!**");
         }
       };
+    } else if (
+      [
+        "doc",
+        "docm",
+        "docx",
+        "dot",
+        "dotm",
+        "dotx",
+        ".odt",
+        "pages",
+        "rtf",
+        "tex",
+        "txt",
+        "wpd",
+        "wps",
+      ].includes(ext)
+    ) {
+      setErrMessage("Text document file is not supported");
+    } else if (
+      [
+        "jpg",
+        "jpeg",
+        "png",
+        "gif",
+        "bmp",
+        "svg",
+        "tif",
+        "tiff",
+        "webp",
+      ].includes(ext)
+    ) {
+      setErrMessage("Image file is not supported");
+    } else if (ext === "pdf") {
+      setErrMessage("Pdf file is not supported");
     } else {
+      setErrMessage("");
       resultFile = file; // Reading all Other formates as well
       const promise = new Promise((resolve, reject) => {
         const fileReader = new FileReader();
@@ -139,7 +176,6 @@ const DocumentView = () => {
           reject(errorData);
         };
       });
-      // console.log(filterdList);
       promise.then((d) => {
         setItems(d);
         setErrorData(null);
@@ -344,6 +380,7 @@ const DocumentView = () => {
                     <p style={{ wordBreak: "break-word" }}>
                       Drag `&apos;`n`&apos;` drop some files here, or click to
                       select files
+                      {errMessage && <p sx={{ color: "red" }}> {errMessage}</p>}
                     </p>
                     <p style={{ wordBreak: "break-word" }}>
                       .xlsx,.xlsm ,.xlsb ,.xls ,.xlw ,.xlr ,.csv ,.json ,.doc
@@ -547,6 +584,7 @@ const DocumentView = () => {
             />
           </details>
         </Card>
+        {/* file view  */}
         <AnchorLink href="#Top_Page" offset="150" className="Top_key">
           Top
           <br />

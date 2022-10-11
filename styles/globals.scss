@@ -43,8 +43,10 @@ a {
   padding: 1rem 0.4rem;
   box-shadow: 0 0px 15px 0 rgba(110, 110, 110, 0.6);
   min-width: 100%;
+  white-space: nowrap;
   > ol {
     min-width: 90vw;
+    font-size: x-small;
   }
 
   @media screen and (min-width: $tablet-screen) {

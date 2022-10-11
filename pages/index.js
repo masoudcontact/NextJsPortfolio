@@ -256,6 +256,12 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
             gap={2}
             sx={{
               justifyContent: ["center", "space-between"],
+              gridAutoColumns: "minmax(0, 1fr)",
+              "> li:nth-child(2)": {
+                div: {
+                  padding: ["1rem 0.4rem", "2rem 1rem"],
+                },
+              },
             }}
           >
             <li>
@@ -276,11 +282,11 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
               <div className="testimonialContainer">
                 <ol>
                   <li> Twitte Splitter</li>
-                  <li>Document Viewer</li>
+                  <li> Document Viewer</li>
                   <li> Regex Test</li>
                   <li> Compare Text</li>
                   <li> Compare Image</li>
-                  <li> README.me Creator</li>
+                  {/* <li> README.me Creator</li> */}
                 </ol>
                 <div className="ImageContainer">
                   <Image src={ImageEdit} width="200" height="200"></Image>
@@ -290,7 +296,7 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
             <li>
               <div className="testimonialContainer">
                 <ol>
-                  <li> Morning Click Chrome Extension</li>
+                  <li> Morning Click Extension</li>
                   <li>JSON-pretty-textarea</li>
                   <li> ProgressBar-Chart</li>
                 </ol>
