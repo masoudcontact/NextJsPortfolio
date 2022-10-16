@@ -242,7 +242,7 @@ const Twittespl = () => {
               gridRowGap: "1rem",
             }}
           >
-            <div style={{ marginTop: "10px" }}>
+            <div className="rangeContainer">
               ↔️ &nbsp;{posWatermark || "24"}&nbsp;
               <input
                 type="range"
@@ -257,12 +257,13 @@ const Twittespl = () => {
                     JSON.stringify(e.target.value)
                   )
                 )}
-                className="rangeselector"
+                className="rangeSelector"
                 data-for="main"
                 data-tip="Change the WaterMark Position"
               />
             </div>
-            <div style={{ marginTop: "10px" }}>
+            <div className="rangeContainer">
+              ↕️ &nbsp;{posverWatermark || "24"}&nbsp;
               <input
                 type="range"
                 min={1}
@@ -276,12 +277,11 @@ const Twittespl = () => {
                     JSON.stringify(e.target.value)
                   )
                 )}
-                style={{ transform: "rotate(270deg)" }}
-                className="rangeselector"
+                // style={{ transform: "rotate(270deg)" }}
+                className="rangeSelector"
                 data-for="main"
                 data-tip="Change the WaterMark Position"
               />
-              ↕️ &nbsp;{posverWatermark || "24"}&nbsp;
             </div>
             <Box>
               <ButtonMn

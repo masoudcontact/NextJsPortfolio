@@ -7,7 +7,6 @@ $Cmp--color-shadow: rgba(63, 63, 63, 0.8);
 .languageBtn {
   margin: 1rem 0 1rem 0;
   width: 100%;
-  min-height: 3rem;
   font: inherit;
   font-size: 0.88rem;
   font-weight: 500;
@@ -22,7 +21,8 @@ $Cmp--color-shadow: rgba(63, 63, 63, 0.8);
   text-align: center;
   min-width: 8rem;
   max-width: 10rem;
-  max-height: 1rem;
+  min-height: 3rem;
+  max-height: 3rem;
 
   &Long {
     @extend .languageBtn;

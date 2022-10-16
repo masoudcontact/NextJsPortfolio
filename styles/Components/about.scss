@@ -1,4 +1,5 @@
 @import "./Variables";
+@import "../../lib/Button/ButtonStyle.module.scss";
 
 .container {
   font-weight: 600;
@@ -174,9 +175,19 @@
   color: black;
 }
 
-.rangeselector {
-  width: 80px;
+.rangeContainer {
+  @extend .languageBtn;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.rangeSelector {
+  width: 80px;
+  accent-color: red;
+  color: aqua;
+}
+
 .ReadmeBtn {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

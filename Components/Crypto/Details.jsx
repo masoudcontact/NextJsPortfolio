@@ -138,7 +138,7 @@ const Details = ({ coin }) => {
         >
           {chartData && <Chart data={chartData} data2={[]} />}
         </Box>
-
+        {/* TODO: fix the coin name on drop box comming from crypto index */}
         <Box>
           <select
             className="MyDropdown"
