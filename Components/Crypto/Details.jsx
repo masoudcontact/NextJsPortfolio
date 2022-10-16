@@ -17,9 +17,12 @@ import GoogleTrends from "./GoogleTrends";
 
 const Details = ({ coin }) => {
   const router = useRouter();
+
+  console.log(coin.symbol);
+
   //-----------------------------------------------------Coin List
   const [coinsList, setCoinsList] = useState([]);
-  const [name, setName] = useState(coin ? coin : "bitcoin");
+  const [name, setName] = useState(coin);
   useEffect(() => {
     const GetCoinsList = async () => {
       const featuredCoins = await useCoins();
@@ -30,7 +33,6 @@ const Details = ({ coin }) => {
   const SelectCoin = (e) => {
     const CoinName = coinsList.find((coin) => coin.symbol === e.target.value);
     setName(CoinName);
-    // console.log(CoinName.id);
     router.push(`/crypto/${CoinName.id}`);
   };
   //-----------------------------------------------------Time Manage
@@ -138,13 +140,12 @@ const Details = ({ coin }) => {
         >
           {chartData && <Chart data={chartData} data2={[]} />}
         </Box>
-        {/* TODO: fix the coin name on drop box comming from crypto index */}
         <Box>
           <select
             className="MyDropdown"
             onChange={(e) => SelectCoin(e)}
             placeholder="Select Coin"
-            // value={coin.id}
+            value={coin.symbol}
           >
             {typeof coinsList !== "undefined" ? (
               coinsList
