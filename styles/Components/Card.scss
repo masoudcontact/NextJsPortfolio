@@ -229,18 +229,23 @@
   box-shadow: 5px 5px 10px $progressBar-bg--color-dark;
   font-size: 0.8rem;
 
-  @media (max-width: 50rem) {
+  @media (max-width: 60rem) {
     all: revert;
-    display: grid;
-    margin: auto;
-    max-width: 80%;
-    z-index: 999;
-    background: $progressBar-bg--color;
+    margin: 1rem auto;
+    max-width: 100%;
     min-height: 14rem;
-    border: 10px solid $progressBar-bg--color-dark;
+    background: $progressBar-bg--color;
+    border: 1px solid $progressBar-bg--color-light;
     border-radius: 1rem;
     padding: 1rem;
-    font-size: 0.8rem;
+  }
+
+  & label {
+    color: $progressBar-bg--color-dark;
+  }
+
+  & > div {
+    gap: 0.5rem;
   }
 }
 

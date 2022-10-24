@@ -7,6 +7,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  Legend,
 } from "recharts";
 
 function Chart(props) {
@@ -78,13 +79,33 @@ function Chart(props) {
   // console.log(newD);
 
   const renderLineChart = (
+    //tooltip price color changed on the global by important
     <LineChart
       width={InnerWidth}
       height={InnerHeight}
       data={newD}
       margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
     >
-      <Tooltip />
+      <Tooltip
+        wrapperStyle={{
+          color: "#ccc",
+          backgroundColor: "#80808050",
+          border: "1px solid red",
+          borderRadius: 3,
+        }}
+      />
+      <Legend
+        width={100}
+        wrapperStyle={{
+          top: 20,
+          right: 20,
+          backgroundColor: "#18181890",
+          border: "1px doted #d5d5d5",
+          borderRadius: 3,
+          lineHeight: "40px",
+          fontSize: ".5rem",
+        }}
+      />
       <Line type="monotone" dataKey="price" stroke="white" dot={false} />
       <Line type="monotone" dataKey="price2" stroke="red" dot={false} />
       <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />

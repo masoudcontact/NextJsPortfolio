@@ -308,3 +308,14 @@ a {
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #e6e6e6;
 }
+
+.recharts-default-tooltip {
+  background-color: #80808050 !important;
+  border: 0px none #ccc !important;
+  border-radius: 3px !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+  color: gray !important;
+  font-size: 10px !important;
+  padding: 10px !important;
+  white-space: nowrap !important;
+}
