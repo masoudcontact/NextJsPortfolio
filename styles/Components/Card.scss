@@ -216,28 +216,28 @@
 }
 
 .ImageEditor {
-  display: grid;
-  position: fixed;
-  left: 5%;
-  bottom: 1rem;
-  z-index: 999;
-  background: $progressBar-bg--color;
+  all: revert;
+  margin: 1rem auto;
+  max-width: 100%;
   min-height: 14rem;
-  border: 10px solid $progressBar-bg--color-light;
+  background: $progressBar-bg--color;
+  border: 1px solid $progressBar-bg--color-light;
   border-radius: 1rem;
   padding: 1rem;
-  box-shadow: 5px 5px 10px $progressBar-bg--color-dark;
-  font-size: 0.8rem;
 
-  @media (max-width: 60rem) {
-    all: revert;
-    margin: 1rem auto;
-    max-width: 100%;
-    min-height: 14rem;
+  @media (min-width: 60rem) {
+    display: grid;
+    position: fixed;
+    left: 5%;
+    bottom: 1rem;
+    z-index: 999;
     background: $progressBar-bg--color;
-    border: 1px solid $progressBar-bg--color-light;
+    min-height: 14rem;
+    border: 10px solid $progressBar-bg--color-light;
     border-radius: 1rem;
     padding: 1rem;
+    box-shadow: 5px 5px 10px $progressBar-bg--color-dark;
+    font-size: 0.8rem;
   }
 
   & label {
@@ -246,6 +246,29 @@
 
   & > div {
     gap: 0.5rem;
+  }
+
+  &__float {
+    display: grid;
+    position: fixed;
+    left: 5%;
+    bottom: 1rem;
+    z-index: 999;
+    background: $progressBar-bg--color;
+    min-height: 14rem;
+    border: 10px solid $progressBar-bg--color-light;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 5px 5px 10px $progressBar-bg--color-dark;
+    font-size: 0.8rem;
+
+    & label {
+      color: $progressBar-bg--color-dark;
+    }
+
+    & > div {
+      gap: 0.5rem;
+    }
   }
 }
 

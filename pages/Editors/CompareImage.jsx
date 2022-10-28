@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import Head from "next/head";
 import MaxImage from "next/image";
-import { Card, Grid, Flex, Box, Text } from "theme-ui";
+import { Card, Grid, Flex, Box, Text, Checkbox, Label } from "theme-ui";
 import ReactCompareImage from "react-compare-image";
 import { useDropzone } from "react-dropzone";
 import Resizer from "react-image-file-resizer";
@@ -9,6 +9,7 @@ import { Form, Spinner } from "react-bootstrap";
 import { motion } from "framer-motion";
 import ButtonMn, { ButtonMnLong } from "../../lib/Button/ButtonMn";
 import BackGroundImage from "../../lib/BackGroundImage";
+import { unset } from "lodash";
 
 const baseStyle = {
   flex: 1,
@@ -63,7 +64,9 @@ const CompareImage = () => {
   const [ImprtImgW2, setImprtImgW2] = useState(0);
 
   const [estSize, setestSize] = useState(0);
+  const [floater, setFloater] = useState(false);
 
+  const toggleFloater = floater ? "__float" : "";
   /////////////////////////drag and drop file upload/////////////////////////////
 
   ////Left side
@@ -492,7 +495,7 @@ const CompareImage = () => {
 
         <Card>
           <Grid
-            columns={[2, 2, 4]}
+            columns={[2, 2, 5]}
             sx={{
               paddingTop: "0",
               minHeight: "5rem",
@@ -540,11 +543,23 @@ const CompareImage = () => {
                 Export Image <br />
               </ButtonMn>
             </Box>
+            <Box>
+              <ButtonMn>
+                <Label>
+                  <Checkbox
+                    checked={floater}
+                    onChange={() => setFloater(!floater)}
+                    defaultChecked={true}
+                  />
+                </Label>
+                Editor
+              </ButtonMn>
+            </Box>
           </Grid>
         </Card>
       </Card>
 
-      <div className="ImageEditor">
+      <div className={`ImageEditor${toggleFloater}`}>
         <Grid>
           <label>Width:&nbsp;&nbsp;</label>
           <input
