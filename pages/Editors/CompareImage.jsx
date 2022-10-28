@@ -544,16 +544,19 @@ const CompareImage = () => {
               </ButtonMn>
             </Box>
             <Box>
-              <ButtonMn>
-                <Label>
+              <Flex
+                className="languageBtn"
+                sx={{ minWidth: "8rem", alignItems: "center" }}
+              >
+                <Label sx={{ width: "fit-content" }}>
                   <Checkbox
                     checked={floater}
                     onChange={() => setFloater(!floater)}
                     defaultChecked={true}
                   />
                 </Label>
-                Editor
-              </ButtonMn>
+                Editor Float
+              </Flex>
             </Box>
           </Grid>
         </Card>
