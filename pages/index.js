@@ -121,6 +121,7 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
                 height: ["120%", "100%"],
                 padding: "1rem 4rem",
                 borderRadius: "1rem",
+                position: "relative",
                 clipPath: [
                   "polygon(0% 0%, 100% 0, 100% 85%, 50% 100%, 0 85%)",
                   "polygon(0% 0%, 100% 0, 100% 85%, 50% 100%, 0 85%)",
@@ -130,16 +131,7 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
                 ],
               }}
             >
-              <h3
-                sx={{
-                  color: "#dc3545",
-                  wordBreak: "normal",
-                  padding: "1rem",
-                  transform: "rotate(90deg)",
-                }}
-              >
-                Libraries & Frameworks
-              </h3>
+              <h3 className="h3title90deg"> Libraries & Frameworks</h3>
               <br />
               <ol
                 sx={{

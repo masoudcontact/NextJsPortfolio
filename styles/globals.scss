@@ -319,3 +319,25 @@ a {
   padding: 10px !important;
   white-space: nowrap !important;
 }
+
+.h3title90deg {
+  color: #dc3545;
+  word-break: normal;
+  padding: 1rem;
+  transform: rotate(90deg);
+  margin-top: -20vh;
+  z-index: -2;
+  position: fixed;
+  font-size: 10rem;
+  font-weight: bolder;
+
+  @media (min-width: 960px) {
+    left: -550px;
+  }
+  @media (min-width: 1600px) {
+    left: -450px;
+  }
+  @media (min-width: 2400px) {
+    left: -350px;
+  }
+}
