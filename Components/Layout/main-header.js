@@ -30,7 +30,7 @@ const Header = () => {
                   <NavDropdown.Item> About</NavDropdown.Item>
                 </Link>
 
-                <Link href="https://www.masoudnaji.com" passHref>
+                <Link href="https://masoud-naji.netlify.app/" passHref>
                   <NavDropdown.Item>
                     <a
                       href="https://masoud-naji.netlify.app/"
