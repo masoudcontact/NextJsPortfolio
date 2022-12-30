@@ -33,7 +33,7 @@ const Header = () => {
                 <Link href="https://www.masoudnaji.com" passHref>
                   <NavDropdown.Item>
                     <a
-                      href="https://www.masoudnaji.com"
+                      href="https://masoud-naji.netlify.app/"
                       target="_blank"
                       rel="noopener noreferrer"
                       sx={{
@@ -41,7 +41,7 @@ const Header = () => {
                         ":hover": { color: "red" },
                       }}
                     >
-                      React Version
+                      React Project
                     </a>
                   </NavDropdown.Item>
                 </Link>
