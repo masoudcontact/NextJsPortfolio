@@ -83,12 +83,19 @@ const Header = () => {
                     <a
                       href="mailto:info@masoudnaji.com?subject=Mail From WebSite&body=..."
                       style={{ width: "100%", display: "block" }}
+                      target="_blank"
                     >
                       Email
                     </a>
                   </Box>
                   <Box>
-                    <section style={{ height: "2rem", width: "2rem" }}>
+                    <section
+                      style={{
+                        height: "2rem",
+                        width: "2rem",
+                        marginLeft: "1rem",
+                      }}
+                    >
                       <Image src={Emails} width="100" height="100" />
                     </section>
                   </Box>
@@ -104,12 +111,19 @@ const Header = () => {
                     <a
                       href="https://www.linkedin.com/in/masoud-naji/"
                       style={{ width: "100%", display: "block" }}
+                      target="_blank"
                     >
                       Linkedin
                     </a>
                   </Box>
                   <Box>
-                    <section style={{ height: "2rem", width: "2rem" }}>
+                    <section
+                      style={{
+                        height: "2rem",
+                        width: "2rem",
+                        marginLeft: "1rem",
+                      }}
+                    >
                       <Image
                         src={linkedin}
                         width="100"
@@ -127,12 +141,19 @@ const Header = () => {
                     <a
                       href="https://github.com/masoud-naji"
                       style={{ width: "100%", display: "block" }}
+                      target="_blank"
                     >
                       Github
                     </a>
                   </Box>
                   <Box>
-                    <section style={{ height: "2rem", width: "2rem" }}>
+                    <section
+                      style={{
+                        height: "2rem",
+                        width: "2rem",
+                        marginLeft: "1rem",
+                      }}
+                    >
                       <Image
                         src={Github}
                         width="100"
@@ -153,17 +174,63 @@ const Header = () => {
                     <a
                       href="https://codesandbox.io/u/masoud-naji"
                       style={{ width: "100%", display: "block" }}
+                      target="_blank"
                     >
                       sandbox
                     </a>
                   </Box>
                   <Box>
-                    <section style={{ height: "2rem", width: "2rem" }}>
+                    <section
+                      style={{
+                        height: "2rem",
+                        width: "2rem",
+                        marginLeft: "1rem",
+                      }}
+                    >
                       <Image
                         src={sandbox}
                         style={{ width: "2rem", height: "100%", padding: "0" }}
                         alt="sandbox"
                       />
+                    </section>
+                  </Box>
+                </Grid>
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                as="li"
+                href="https://codesandbox.io/u/masoud-naji"
+              >
+                <Grid gap={4} columns={[2, "1fr 2fr"]}>
+                  <Box>
+                    <a
+                      href="https://getliner.com/feeds/user/2014735?shareOption=profile"
+                      style={{ width: "100%", display: "block" }}
+                      target="_blank"
+                    >
+                      Weblog
+                    </a>
+                  </Box>
+                  <Box>
+                    <section
+                      style={{
+                        height: "2rem",
+                        width: "2rem",
+                        marginLeft: "1rem",
+                      }}
+                    >
+                      <p
+                        style={{
+                          color: "black",
+                          fontSize: "1.2rem",
+                          border: "2px solid black",
+                          borderRadius: ".5rem",
+                          width: "fit-content",
+                          padding: "0 0.3rem",
+                        }}
+                      >
+                        LW<sub>b</sub>
+                      </p>
                     </section>
                   </Box>
                 </Grid>
