@@ -133,11 +133,12 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
               <h3
                 sx={{
                   color: "#dc3545",
-                  wordBreak: "break-word",
+                  wordBreak: "normal",
                   padding: "1rem",
+                  transform: "rotate(90deg)",
                 }}
               >
-                Libraries used at this Site
+                Libraries & Frameworks
               </h3>
               <br />
               <ol
