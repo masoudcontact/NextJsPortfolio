@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { transparentize } from "@theme-ui/color";
 import ButtonMn, { ButtonMnLong } from "../lib/Button/ButtonMn";
+import SkillIcon from "../lib/Skill/SkillIcon";
 
 const About = () => {
   const backgroundImage = "https://picsum.photos/seed/picsum/200/300";
@@ -147,7 +148,10 @@ const About = () => {
       >
         <Grid columns={[1]}>
           <Box>
-            <h1>About Me</h1>
+            <Flex sx={{ justifyContent: "space-between" }}>
+              <h1>About Me</h1>
+              <SkillIcon />
+            </Flex>
             <Text
               sx={{
                 fontSize: [0, 1],

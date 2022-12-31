@@ -38,15 +38,16 @@ a {
   display: grid;
   grid-template-columns: 1fr;
   justify-content: space-between;
-  align-items: center;
+  // align-items: center;
   justify-items: center;
   padding: 1rem 0.4rem;
-  box-shadow: 0 0px 15px 0 rgba(110, 110, 110, 0.6);
+  box-shadow: 0 0px 15px 0 rgba(110, 110, 110, 0.3);
   min-width: 100%;
   white-space: nowrap;
   > ol {
     min-width: 90vw;
     font-size: x-small;
+    color: #000;
   }
 
   @media screen and (min-width: $tablet-screen) {
@@ -54,6 +55,7 @@ a {
     padding: 1rem;
     > ol {
       min-width: fit-content;
+      padding-left: 3rem;
     }
   }
 }

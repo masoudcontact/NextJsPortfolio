@@ -7,10 +7,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import cryptocurrency from "../public/Images/cryptocurrency.png";
 import ImageEdit from "../public/Images/ImageEdit.png";
 import Npm from "../public/Images/npm.png";
-import { Card, Grid, Box, Flex, Container } from "theme-ui";
+import { Grid, Box, Container } from "theme-ui";
 import { darken, lighten } from "@theme-ui/color";
 import { RadarChart } from "skills-radar-chart";
 import Skills from "../lib/Skill/SkillsArray.json";
+import SkillIcon from "../lib/Skill/SkillIcon";
 
 function Home({ StartScrollSpeed, EndScrollSpeed }) {
   const StScrollSPD = StartScrollSpeed ? StartScrollSpeed : 1;
@@ -405,6 +406,8 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
             </li>
           </ul>
         </Box>
+
+        <SkillIcon />
 
         <div className="SVGWrapper">
           <motion.svg
