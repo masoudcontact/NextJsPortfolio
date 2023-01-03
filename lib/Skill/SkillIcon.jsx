@@ -2,7 +2,7 @@ import { Grid, Box, Flex } from "theme-ui";
 
 const SkillIcon = () => {
   return (
-    <Flex sx={{ justifyContent: " flex-end" }}>
+    <Flex sx={{ justifyContent: "center", flexWrap: "wrap" }}>
       <a
         href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
         target="_blank"
