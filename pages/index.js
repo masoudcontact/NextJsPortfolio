@@ -25,8 +25,11 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
 
   return (
     <Grid
-      columns={[1, "2fr 1fr"]}
-      sx={{ backgroundColor: "background", color: "primary" }}
+      // columns={(1, ["2fr 1fr"])}
+      sx={{
+        backgroundColor: "background",
+        color: "primary",
+      }}
     >
       <Head>
         <title>Masoud Naji Portfolio webSite</title>
@@ -89,11 +92,8 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
 
         <Box
           sx={{
-            // minWidth: ["100%", "100%", "100%", "120vw"],
-            // maxWidth: ["100%", "100%", "100%", "120vw"],
-            minWidth: "120vw",
-            maxWidth: "120vw",
             position: "relative",
+            width: "100vw",
             left: "50%",
             marginLeft: "-50vw",
             borderTop: `0.6rem solid`,
@@ -114,11 +114,14 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
               alignItems: "center",
               justifyContent: "center",
               gap: ["2rem", "0"],
+              height: "100%",
+              overflowX: "auto",
+              whiteSpace: "nowrap",
             }}
           >
             <div
               sx={{
-                display: ["none", "none", "none", "block"],
+                display: ["none", "none", "none", "inline-block"],
                 background: "secondary",
                 color: darken("primary", 0.5),
                 width: ["100vw", "40%"],
@@ -178,6 +181,7 @@ function Home({ StartScrollSpeed, EndScrollSpeed }) {
                 width: ["50vh", "100%"],
                 maxWidth: "50vh",
                 minWidth: "48vh",
+                display: "inline-block",
               }}
             >
               <RadarChart
