@@ -7,6 +7,7 @@ import { useDropzone } from "react-dropzone";
 import { motion } from "framer-motion";
 import ButtonMn from "../../lib/Button/ButtonMn";
 import BackGroundImage from "../../lib/BackGroundImage";
+import TextEditor from "../../lib/TextEditor";
 
 const baseStyle = {
   flex: 1,
@@ -238,11 +239,13 @@ const CompareText = () => {
           </Box>
           <Box></Box>
         </Grid>
-
         <BackGroundImage />
-
         <hr />
-
+        <TextEditor
+          onTextSubmit1={(e) => setFile1(e)}
+          onTextSubmit2={(e) => setFile2(e)}
+        />
+        <hr />
         <Grid
           columns={[1, 1, "2fr 2fr"]}
           sx={{
@@ -322,7 +325,6 @@ const CompareText = () => {
             </Flex>
           </Box>
         </Grid>
-
         <Grid
           // columns={[2, 3, 3]}
           sx={{
@@ -353,7 +355,6 @@ const CompareText = () => {
             </ButtonMn>
           </Box>
         </Grid>
-
         <Box sx={{ maxWidth: ["100%", "fit-content"], minWidth: "100%" }}>
           <ReactDiffViewer
             styles={newStyles}
