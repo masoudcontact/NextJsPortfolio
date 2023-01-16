@@ -42,7 +42,7 @@ const CompareText = () => {
   const [File1, setFile1] = useState("");
   const [File2, setFile2] = useState("");
   const [Split, setSplit] = useState(true);
-  const [Darkthm, setDarkthm] = useState(false);
+  const [Darkthm, setDarkthm] = useState(true);
   const [LineNumbers, setLineNumbers] = useState(true);
 
   const [errorDataFile1, setErrorDataFile1] = useState("");
