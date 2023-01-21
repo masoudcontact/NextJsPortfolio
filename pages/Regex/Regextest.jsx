@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import Head from "next/head";
-import Image from "next/image";
 import { HighlightWithinTextarea } from "react-highlight-within-textarea";
 import ReactTooltip from "react-tooltip";
 import { Card, Grid, Box, Flex, Text } from "theme-ui";
@@ -8,17 +7,9 @@ import { transparentize } from "@theme-ui/color";
 import Accordion from "react-bootstrap/Accordion";
 import { useDropzone } from "react-dropzone";
 import { motion } from "framer-motion";
-import CommonToken from "./Accordions/CommonToken";
-import GeneralToken from "./Accordions/GeneralToken";
-import MetaSeq from "./Accordions/MetaSeq";
-import Anchors from "./Accordions/Anchors";
-import Quantifiers from "./Accordions/Quantifiers";
-import GroupConst from "./Accordions/GroupConst";
-import Characters from "./Accordions/Characters";
-import FlagsModifiers from "./Accordions/FlagModifiers";
-import Substitutions from "./Accordions/Substitutions";
-import AllRegexes from "./Accordions/AllRegexes";
 import BackGroundImage from "../../lib/BackGroundImage";
+import * as Accordions from "./Accordions";
+import { ButtonMnLong } from "../../lib/Button/ButtonMn";
 
 const baseStyle = {
   flex: 1,
@@ -122,29 +113,6 @@ const RegexTest = () => {
   );
 
   ////////////////////////////////read file////////////////////////
-  // const showFile = async (textFile) => {
-  //   console.log(textFile);
-  //   const reader = new FileReader();
-  //   reader.onloaded = () => {
-  //     const textResult  = reader.result;
-  //     console.log(textResult.length);
-  //     if (!textResult.length) {
-  //       setErrormsg("**Not valid Image file!**");
-  //       setValue("");
-  //       return;
-  //     }
-  //     try {
-  //       setValue(textResult);
-  //       setUploadedvalue(textResult);
-  //     } catch (error) {
-  //       setErrormsg("**Not valid Image file!**");
-  //       setValue("");
-  //       return;
-  //     }
-  //   };
-  //   reader.readAsText(textFile);
-  // };
-
   const frmtarry = [
     ".csv",
     ".json",
@@ -163,14 +131,15 @@ const RegexTest = () => {
     const ext = name.slice(lastDot);
     console.log(ext);
     if (!frmtarry.includes(ext)) {
-      alert("File Format is Wrong!");
+      alert("File Format is Wrong!!");
       return;
     }
     console.log("Go", e.name);
     try {
+      const resultText = extractTextFromDocx(e.path);
+      console.log(resultText);
       const reader = new FileReader();
       reader.onload = async (e) => {
-        // const text = e;
         console.log(e.target.result);
         setValue(e.target.result);
       };
@@ -394,7 +363,7 @@ const RegexTest = () => {
           columns={[1, 1, "1fr 2fr"]}
           gap={2}
           sx={{
-            maxHeight: ["100%", "100%", "22rem"],
+            // maxHeight: ["100%", "100%", "100%"],
             alignContent: "flex-start",
           }}
         >
@@ -404,28 +373,28 @@ const RegexTest = () => {
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Common Tokens</Accordion.Header>
                   <Accordion.Body>
-                    <CommonToken setClickToken={AddToken} />
+                    <Accordions.CommonToken setClickToken={AddToken} />
                   </Accordion.Body>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="1">
                   <Accordion.Header>General Token</Accordion.Header>
                   <Accordion.Body>
-                    <GeneralToken setClickToken={AddToken} />
+                    <Accordions.GeneralToken setClickToken={AddToken} />
                   </Accordion.Body>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="2">
                   <Accordion.Header>Anchors</Accordion.Header>
                   <Accordion.Body>
-                    <Anchors setClickToken={AddToken} />
+                    <Accordions.Anchors setClickToken={AddToken} />
                   </Accordion.Body>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="3">
                   <Accordion.Header>Meta Sequences</Accordion.Header>
                   <Accordion.Body>
-                    <MetaSeq setClickToken={AddToken} />
+                    <Accordions.MetaSeq setClickToken={AddToken} />
                   </Accordion.Body>
                 </Accordion.Item>
 
@@ -433,42 +402,42 @@ const RegexTest = () => {
                   <Accordion.Header>Quantifiers</Accordion.Header>
 
                   <Accordion.Body>
-                    <Quantifiers setClickToken={AddToken} />
+                    <Accordions.Quantifiers setClickToken={AddToken} />
                   </Accordion.Body>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="5">
                   <Accordion.Header>Group Constructs</Accordion.Header>
                   <Accordion.Body>
-                    <GroupConst setClickToken={AddToken} />
+                    <Accordions.GroupConst setClickToken={AddToken} />
                   </Accordion.Body>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="6">
                   <Accordion.Header>characters Classes</Accordion.Header>
                   <Accordion.Body>
-                    <Characters setClickToken={AddToken} />
+                    <Accordions.Characters setClickToken={AddToken} />
                   </Accordion.Body>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="7">
                   <Accordion.Header>Flags/Modifiers</Accordion.Header>
                   <Accordion.Body>
-                    <FlagsModifiers setClickToken={AddToken} />
+                    <Accordions.FlagsModifiers setClickToken={AddToken} />
                   </Accordion.Body>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="8">
                   <Accordion.Header>Substitutions</Accordion.Header>
                   <Accordion.Body>
-                    <Substitutions setClickToken={AddToken} />
+                    <Accordions.Substitutions setClickToken={AddToken} />
                   </Accordion.Body>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="9">
                   <Accordion.Header>All Regex Tokens</Accordion.Header>
                   <Accordion.Body>
-                    <AllRegexes setClickToken={AddToken} />
+                    <Accordions.AllRegexes setClickToken={AddToken} />
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
@@ -489,14 +458,19 @@ const RegexTest = () => {
                   Drag &apos;n&apos; drop a file here, or click to select file
                 </p>
                 <p style={{ wordBreak: "break-word" }}>
-                  .xlsx ,.xlsm ,.xlsb ,.xls ,.xlw ,.xlr ,.csv ,.json ,.doc
-                  ,.docx ,.xml
+                  .xlsx ,.xlsm ,.xlsb ,.xls ,.xlw ,.xlr ,.csv ,.json ,.xml
                 </p>
-                Text Below is editable and could write or copy your text here
-                then you can check the regex on it
+                <b style={{ color: "red" }}>
+                  Text Below is Editable and could Clear the mock text and write
+                  or copy your text .
+                </b>
               </div>
             </div>
+            <a onClick={() => setValue("")} className="clearButton">
+              Clear
+            </a>
             <hr />
+
             <HighlightWithinTextarea
               value={value}
               onChange={onChange}
@@ -505,6 +479,7 @@ const RegexTest = () => {
                 width: "600px",
                 textAlign: "justify",
                 textJustify: "inter-word",
+                overflowY: "scroll",
               }}
             />
           </Flex>
