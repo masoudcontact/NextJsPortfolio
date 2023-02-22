@@ -1,4 +1,4 @@
-/** @jsxImportSource theme-ui */
+// /** @jsxImportSource theme-ui */
 import { useState } from "react";
 import Link from "next/link";
 import { useColorMode, Grid, Box, Flex, Text } from "theme-ui";
@@ -204,7 +204,7 @@ const Header = () => {
                 <Grid gap={4} columns={[2, "1fr 2fr"]}>
                   <Box>
                     <a
-                      href="https://getliner.com/feeds/user/2014735?shareOption=profile"
+                      href="https://getliner.com/user-profile/2014735"
                       style={{ width: "100%", display: "block" }}
                       target="_blank"
                     >
