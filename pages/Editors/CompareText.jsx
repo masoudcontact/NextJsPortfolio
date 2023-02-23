@@ -232,7 +232,7 @@ const CompareText = () => {
                 wordBreak: "break-word",
               }}
             >
-              Write or copy/past even Open and compare any text base file
+              Open and compare any text base file
               (.xlsx,.xlsm,.xlsb,.xls,xlw,.xlr,.csv,.json,doc,.docx,.xml) you
               can check your code file is same or not.
             </Text>
@@ -241,24 +241,11 @@ const CompareText = () => {
         </Grid>
         <BackGroundImage />
         <hr />
-        <h4>📝Write Texts</h4>
-
-        <hr
-          style={{
-            width: "30%",
-          }}
-        />
         <TextEditor
           onTextSubmit1={(e) => setFile1(e)}
           onTextSubmit2={(e) => setFile2(e)}
         />
         <hr />
-        <h4>🔃Upload Texts</h4>
-        <hr
-          style={{
-            width: "30%",
-          }}
-        />
         <Grid
           columns={[1, 1, "2fr 2fr"]}
           sx={{
